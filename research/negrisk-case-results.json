@@ -1,0 +1,82 @@
+{
+  "status": "exact rational arithmetic; adapter reimplemented from source",
+  "source_repo": "Polymarket/neg-risk-ctf-adapter",
+  "source_commit": "f78b35b0863b4308a431ca307d06f49b2ea65e78",
+  "fee_bips": 0,
+  "observation": "one numeric terminal observation, one settlement asset",
+  "lifecycle": {
+    "asce_total_backing": "1",
+    "adapter_total_backing": "2",
+    "gap": "1",
+    "steps": [
+      {
+        "step": "sell both outer claims of one declared partition",
+        "asce_backing": "1",
+        "adapter_backing": "1",
+        "adapter_best_convert_release": "1",
+        "adapter_convert_index_set": [
+          0,
+          2
+        ],
+        "profiles_match": true
+      },
+      {
+        "step": "sell a claim with a boundary the partition cannot express",
+        "asce_additional_backing": "0",
+        "adapter_additional_backing": "1",
+        "adapter_best_convert_release_in_new_market": "0",
+        "adapter_convert_index_set": null,
+        "residual_is_constant": true,
+        "trapped_constant": "1",
+        "trapped_equals_gap": true
+      }
+    ]
+  },
+  "scaling": [
+    {
+      "refinement": 1,
+      "boundary_added": 3100,
+      "asce_total_backing": "1",
+      "adapter_total_backing": "2",
+      "convert_release_available": "0"
+    },
+    {
+      "refinement": 2,
+      "boundary_added": 3150,
+      "asce_total_backing": "1",
+      "adapter_total_backing": "3",
+      "convert_release_available": "0"
+    },
+    {
+      "refinement": 3,
+      "boundary_added": 3175,
+      "asce_total_backing": "1",
+      "adapter_total_backing": "4",
+      "convert_release_available": "0"
+    },
+    {
+      "refinement": 4,
+      "boundary_added": 3187,
+      "asce_total_backing": "1",
+      "adapter_total_backing": "5",
+      "convert_release_available": "0"
+    }
+  ],
+  "certificate": {
+    "split_scope": "one conditionId",
+    "merge_scope": "one conditionId, requires both YES and NO of that condition",
+    "convert_scope": "one marketId, indexSet bounded by questionCount",
+    "question_membership": "only the market oracle may add a question (OnlyOracle)",
+    "cross_market_operation_exists": false,
+    "consequence": "adapter backing is additively separable across marketIds",
+    "asce_rule": "single infimum over the combined account profile"
+  },
+  "not_established": [
+    "no Solidity executed and no deployed Polymarket market measured",
+    "no claim about prices, liquidity, spreads or fees on either venue",
+    "zero premiums assumed on both sides to isolate backing",
+    "assumes an oracle would list the refined market at all",
+    "token precision and Solidity rounding not modelled",
+    "VOID and invalid-resolution semantics excluded from the comparison"
+  ]
+}

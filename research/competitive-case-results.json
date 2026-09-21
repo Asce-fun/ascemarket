@@ -1,0 +1,241 @@
+{
+  "status": "all exact arithmetic, allocation certificate and ledger checks passed",
+  "source_commit": "841f81d9d05da9d27277b5775edfbb48c4012d2a",
+  "normal_outcome_checks": [
+    {
+      "observation": 0,
+      "liability": "0"
+    },
+    {
+      "observation": 2800,
+      "liability": "0"
+    },
+    {
+      "observation": 3000,
+      "liability": "200"
+    },
+    {
+      "observation": 3200,
+      "liability": "0"
+    },
+    {
+      "observation": 3400,
+      "liability": "0"
+    },
+    {
+      "observation": 3600,
+      "liability": "200"
+    },
+    {
+      "observation": 3800,
+      "liability": "0"
+    },
+    {
+      "observation": 10000,
+      "liability": "0"
+    }
+  ],
+  "asce_maximum_liability": "200",
+  "gamma_allocation": {
+    "continuous_optimum_cash": "775/2",
+    "allocation": [
+      {
+        "short_strike": 2800,
+        "short_amount": "1",
+        "long_strike": 3000,
+        "long_amount": "14/15",
+        "cash": "0"
+      },
+      {
+        "short_strike": 3200,
+        "short_amount": "15/16",
+        "long_strike": 3000,
+        "long_amount": "15/16",
+        "cash": "375/2"
+      },
+      {
+        "short_strike": 3200,
+        "short_amount": "1/16",
+        "long_strike": 3600,
+        "long_amount": "1/18",
+        "cash": "0"
+      },
+      {
+        "short_strike": 3400,
+        "short_amount": "1",
+        "long_strike": 3600,
+        "long_amount": "17/18",
+        "cash": "0"
+      },
+      {
+        "short_strike": 3800,
+        "short_amount": "1",
+        "long_strike": 3600,
+        "long_amount": "1",
+        "cash": "200"
+      }
+    ],
+    "unused_long_3000": "31/240",
+    "lower_bound_alpha": {
+      "2800": "0",
+      "3200": "200",
+      "3400": "425/2",
+      "3800": "425"
+    },
+    "lower_bound_beta": {
+      "3000": "0",
+      "3600": "225"
+    },
+    "certificate_endpoint_checks": 20,
+    "scope": "fixed put inventory; arbitrary fractional vault allocation; no extra instruments"
+  },
+  "paths": {
+    "hold": {
+      "rows": [
+        {
+          "action": "Open both, illustrative net premium 80",
+          "quantities": [
+            "1",
+            "1"
+          ],
+          "asce_backing": "200",
+          "gamma_relaxed_cash": "775/2",
+          "asce_net_cash": "120",
+          "gamma_net_cash": "615/2"
+        }
+      ],
+      "peak_asce": "120",
+      "peak_gamma_relaxation": "615/2",
+      "final_asce_net_cash_before_redemption": "120"
+    },
+    "halve_then_close": {
+      "rows": [
+        {
+          "action": "Open both, illustrative net premium 80",
+          "quantities": [
+            "1",
+            "1"
+          ],
+          "asce_backing": "200",
+          "gamma_relaxed_cash": "775/2",
+          "asce_net_cash": "120",
+          "gamma_net_cash": "615/2"
+        },
+        {
+          "action": "Halve both for 40",
+          "quantities": [
+            "1/2",
+            "1/2"
+          ],
+          "asce_backing": "100",
+          "gamma_relaxed_cash": "775/4",
+          "asce_net_cash": "60",
+          "gamma_net_cash": "615/4"
+        },
+        {
+          "action": "Close remainder for 40",
+          "quantities": [
+            "0",
+            "0"
+          ],
+          "asce_backing": "0",
+          "gamma_relaxed_cash": "0",
+          "asce_net_cash": "0",
+          "gamma_net_cash": "0"
+        }
+      ],
+      "peak_asce": "120",
+      "peak_gamma_relaxation": "615/2",
+      "final_asce_net_cash_before_redemption": "0"
+    },
+    "close_individually_180": {
+      "rows": [
+        {
+          "action": "Open both, illustrative net premium 80",
+          "quantities": [
+            "1",
+            "1"
+          ],
+          "asce_backing": "200",
+          "gamma_relaxed_cash": "775/2",
+          "asce_net_cash": "120",
+          "gamma_net_cash": "615/2"
+        },
+        {
+          "action": "Close first for 180",
+          "quantities": [
+            "0",
+            "1"
+          ],
+          "asce_backing": "200",
+          "gamma_relaxed_cash": "200",
+          "asce_net_cash": "300",
+          "gamma_net_cash": "300"
+        },
+        {
+          "action": "Close second for 180",
+          "quantities": [
+            "0",
+            "0"
+          ],
+          "asce_backing": "0",
+          "gamma_relaxed_cash": "0",
+          "asce_net_cash": "280",
+          "gamma_net_cash": "280"
+        }
+      ],
+      "peak_asce": "300",
+      "peak_gamma_relaxation": "615/2",
+      "final_asce_net_cash_before_redemption": "280"
+    },
+    "close_individually_200": {
+      "rows": [
+        {
+          "action": "Open both, illustrative net premium 80",
+          "quantities": [
+            "1",
+            "1"
+          ],
+          "asce_backing": "200",
+          "gamma_relaxed_cash": "775/2",
+          "asce_net_cash": "120",
+          "gamma_net_cash": "615/2"
+        },
+        {
+          "action": "Close first for 200",
+          "quantities": [
+            "0",
+            "1"
+          ],
+          "asce_backing": "200",
+          "gamma_relaxed_cash": "200",
+          "asce_net_cash": "320",
+          "gamma_net_cash": "320"
+        },
+        {
+          "action": "Close second for 200",
+          "quantities": [
+            "0",
+            "0"
+          ],
+          "asce_backing": "0",
+          "gamma_relaxed_cash": "0",
+          "asce_net_cash": "320",
+          "gamma_net_cash": "320"
+        }
+      ],
+      "peak_asce": "320",
+      "peak_gamma_relaxation": "320",
+      "final_asce_net_cash_before_redemption": "320"
+    }
+  },
+  "limits": [
+    "No live quotes, trades or deployed Gamma calls",
+    "Gamma formula is ported; Solidity and token rounding not executed",
+    "Matched normal settlement assumed; exceptional-state equivalence unverified",
+    "Gamma allocation optimizes fixed put inventory, not all synthetic strategies",
+    "All opening and closing premiums are illustrative; fees zero",
+    "Gamma path assumes free atomic reallocation and immediately reusable cash",
+    "No claim of superiority to Deribit portfolio margin or Polymarket"
+  ]
+}

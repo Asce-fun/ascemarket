@@ -1,0 +1,140 @@
+{
+  "status": "all scenario checks passed",
+  "prices": "illustrative, not live quotes",
+  "cases": [
+    {
+      "case": "A: buy capped downside protection",
+      "wallet_change": "-65",
+      "user_future_balance_min_max": [
+        "0",
+        "200"
+      ],
+      "user_void_balance": "0",
+      "user_net_cash_contributed_to_date": "65",
+      "escrow": "201",
+      "treasury_balance": "1"
+    },
+    {
+      "case": "B: move protection start to 2873",
+      "wallet_change": "14",
+      "user_future_balance_min_max": [
+        "0",
+        "200"
+      ],
+      "user_void_balance": "0",
+      "user_net_cash_contributed_to_date": "51",
+      "escrow": "202",
+      "treasury_balance": "2",
+      "incremental_value_vs_keeping_original_min_max": [
+        "-113",
+        "14"
+      ],
+      "listed_option_approximation": {
+        "legs": {
+          "put_2850": "1/2",
+          "put_2650": "-1/2",
+          "put_2900": "1/2",
+          "put_2700": "-1/2"
+        },
+        "max_absolute_normal_payout_error": "27/2",
+        "optimality_claim": false,
+        "prices_and_execution_eligibility_verified": false
+      },
+      "normal_payout_samples": [
+        {
+          "observation": 2600,
+          "old": "200",
+          "target": "200",
+          "listed_approximation": "200"
+        },
+        {
+          "observation": 2673,
+          "old": "200",
+          "target": "200",
+          "listed_approximation": "377/2"
+        },
+        {
+          "observation": 2700,
+          "old": "200",
+          "target": "173",
+          "listed_approximation": "175"
+        },
+        {
+          "observation": 2800,
+          "old": "200",
+          "target": "73",
+          "listed_approximation": "75"
+        },
+        {
+          "observation": 2850,
+          "old": "150",
+          "target": "23",
+          "listed_approximation": "25"
+        },
+        {
+          "observation": 2873,
+          "old": "127",
+          "target": "0",
+          "listed_approximation": "27/2"
+        },
+        {
+          "observation": 2900,
+          "old": "100",
+          "target": "0",
+          "listed_approximation": "0"
+        },
+        {
+          "observation": 3000,
+          "old": "0",
+          "target": "0",
+          "listed_approximation": "0"
+        }
+      ]
+    },
+    {
+      "case": "C: halve two tail obligations",
+      "wallet_change": "22",
+      "user_future_balance_min_max": [
+        "0",
+        "50"
+      ],
+      "user_void_balance": "50",
+      "user_net_cash_contributed_to_date": "24",
+      "escrow": "51",
+      "treasury_balance": "1",
+      "released_backing_before_payment_and_fee": 50,
+      "trade_payment": 27,
+      "fee": 1,
+      "four_outcome_reference": {
+        "slots": [
+          "low",
+          "middle",
+          "high",
+          "VOID"
+        ],
+        "user_remaining_claims": [
+          0,
+          50,
+          0,
+          50
+        ],
+        "provider_remaining_claims": [
+          50,
+          0,
+          50,
+          0
+        ],
+        "treasury": 1,
+        "equal_backing": 51
+      }
+    }
+  ],
+  "not_implemented": [
+    "quote service",
+    "capacity reservation",
+    "real signatures",
+    "idempotent request store",
+    "venue adapter",
+    "user interface"
+  ]
+}

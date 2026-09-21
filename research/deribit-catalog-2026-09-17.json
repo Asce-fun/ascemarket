@@ -1,0 +1,699 @@
+{
+  "retrieved_at_utc": "2026-09-17T10:48:26.987802+00:00",
+  "source_url": "https://www.deribit.com/api/v2/public/get_instruments?currency=USDC&kind=option&expired=false",
+  "raw_response_sha256": "3aa9063d805d7bb0ae43569a8b4409a4101b6998348aa5000d2823f797c94f67",
+  "scope": "Public instrument catalogue only; no prices, quotes, trades or account-specific margin checks.",
+  "total_usdc_option_instruments": 3286,
+  "total_eth_usdc_option_instruments": 580,
+  "all_eth_usdc_strikes": [
+    800.0,
+    1000.0,
+    1200.0,
+    1300.0,
+    1400.0,
+    1500.0,
+    1600.0,
+    1700.0,
+    1750.0,
+    1800.0,
+    1850.0,
+    1900.0,
+    1950.0,
+    2000.0,
+    2050.0,
+    2100.0,
+    2150.0,
+    2200.0,
+    2220.0,
+    2240.0,
+    2250.0,
+    2260.0,
+    2280.0,
+    2300.0,
+    2320.0,
+    2340.0,
+    2350.0,
+    2360.0,
+    2380.0,
+    2400.0,
+    2420.0,
+    2440.0,
+    2450.0,
+    2460.0,
+    2480.0,
+    2500.0,
+    2520.0,
+    2540.0,
+    2550.0,
+    2560.0,
+    2570.0,
+    2580.0,
+    2600.0,
+    2620.0,
+    2640.0,
+    2650.0,
+    2660.0,
+    2680.0,
+    2700.0,
+    2750.0,
+    2760.0,
+    2800.0,
+    2850.0,
+    2900.0,
+    3000.0,
+    3100.0,
+    3200.0,
+    3300.0,
+    3400.0,
+    3500.0,
+    3600.0,
+    3800.0,
+    4000.0,
+    4200.0,
+    4400.0,
+    4500.0,
+    4600.0,
+    4800.0,
+    5000.0,
+    5200.0,
+    5400.0,
+    5500.0,
+    5600.0,
+    5800.0,
+    6000.0,
+    6200.0,
+    6400.0,
+    6500.0,
+    6600.0,
+    6800.0,
+    7000.0,
+    7200.0,
+    7400.0,
+    7500.0,
+    8000.0,
+    8500.0,
+    9000.0,
+    10000.0,
+    11000.0,
+    12000.0,
+    13000.0,
+    14000.0,
+    15000.0,
+    16000.0
+  ],
+  "expiry": "25SEP26",
+  "puts_at_expiry": [
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1000-P",
+      "strike": 1000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1200-P",
+      "strike": 1200.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1300-P",
+      "strike": 1300.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1400-P",
+      "strike": 1400.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1500-P",
+      "strike": 1500.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1600-P",
+      "strike": 1600.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1700-P",
+      "strike": 1700.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1800-P",
+      "strike": 1800.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1850-P",
+      "strike": 1850.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1900-P",
+      "strike": 1900.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-1950-P",
+      "strike": 1950.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2000-P",
+      "strike": 2000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2050-P",
+      "strike": 2050.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2100-P",
+      "strike": 2100.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2150-P",
+      "strike": 2150.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2200-P",
+      "strike": 2200.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2250-P",
+      "strike": 2250.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2300-P",
+      "strike": 2300.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2350-P",
+      "strike": 2350.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2360-P",
+      "strike": 2360.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2380-P",
+      "strike": 2380.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2400-P",
+      "strike": 2400.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2420-P",
+      "strike": 2420.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2440-P",
+      "strike": 2440.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2450-P",
+      "strike": 2450.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2500-P",
+      "strike": 2500.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2550-P",
+      "strike": 2550.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2600-P",
+      "strike": 2600.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2650-P",
+      "strike": 2650.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2700-P",
+      "strike": 2700.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2750-P",
+      "strike": 2750.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2800-P",
+      "strike": 2800.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2850-P",
+      "strike": 2850.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-2900-P",
+      "strike": 2900.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-3000-P",
+      "strike": 3000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-3100-P",
+      "strike": 3100.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-3200-P",
+      "strike": 3200.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-3300-P",
+      "strike": 3300.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-3400-P",
+      "strike": 3400.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-3500-P",
+      "strike": 3500.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-3600-P",
+      "strike": 3600.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-3800-P",
+      "strike": 3800.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-4000-P",
+      "strike": 4000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-4200-P",
+      "strike": 4200.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-4400-P",
+      "strike": 4400.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-4500-P",
+      "strike": 4500.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-4600-P",
+      "strike": 4600.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-4800-P",
+      "strike": 4800.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-5000-P",
+      "strike": 5000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-5200-P",
+      "strike": 5200.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-5400-P",
+      "strike": 5400.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-5500-P",
+      "strike": 5500.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-5600-P",
+      "strike": 5600.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-5800-P",
+      "strike": 5800.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-6000-P",
+      "strike": 6000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-6200-P",
+      "strike": 6200.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-6400-P",
+      "strike": 6400.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-6500-P",
+      "strike": 6500.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-6600-P",
+      "strike": 6600.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-6800-P",
+      "strike": 6800.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-7000-P",
+      "strike": 7000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-7200-P",
+      "strike": 7200.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-7400-P",
+      "strike": 7400.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-7500-P",
+      "strike": 7500.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-8000-P",
+      "strike": 8000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-8500-P",
+      "strike": 8500.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-9000-P",
+      "strike": 9000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-10000-P",
+      "strike": 10000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-11000-P",
+      "strike": 11000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-12000-P",
+      "strike": 12000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-13000-P",
+      "strike": 13000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-14000-P",
+      "strike": 14000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-15000-P",
+      "strike": 15000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    },
+    {
+      "instrument_name": "ETH_USDC-25SEP26-16000-P",
+      "strike": 16000.0,
+      "contract_size": 1.0,
+      "min_trade_amount": 0.1,
+      "expiration_timestamp": 1790323200000,
+      "settlement_currency": "USDC"
+    }
+  ]
+}

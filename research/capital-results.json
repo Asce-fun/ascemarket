@@ -1,0 +1,1066 @@
+{
+  "status": "all checks passed",
+  "zero_fee": {
+    "hold_tail_settlement": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "initial_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "46",
+      "fees": "0",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "hold_middle_settlement": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "initial_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "user_final_redemption": "100",
+      "final_realized_loss_negative_means_profit": "-54",
+      "fees": "0",
+      "settlement": "100",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "hold_void_settlement": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "initial_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "user_final_redemption": "100",
+      "final_realized_loss_negative_means_profit": "-54",
+      "fees": "0",
+      "settlement": "VOID",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "halve_then_close_package": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          }
+        },
+        {
+          "action": "Buy back half of both",
+          "outstanding": [
+            "1/2",
+            "1/2"
+          ],
+          "net_premiums_received_to_date": "27",
+          "fees_to_date": "0",
+          "exact_backing": "50",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "23",
+            "exact_reference": "23",
+            "separate": "73"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-23",
+            "exact_reference": "-23",
+            "separate": "-73"
+          }
+        },
+        {
+          "action": "Close the remainder together",
+          "outstanding": [
+            "0",
+            "0"
+          ],
+          "net_premiums_received_to_date": "0",
+          "fees_to_date": "0",
+          "exact_backing": "0",
+          "separate_backing": "0",
+          "net_personal_cash_committed": {
+            "asce": "0",
+            "exact_reference": "0",
+            "separate": "0"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-23",
+            "exact_reference": "-23",
+            "separate": "-73"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "initial_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "0",
+      "fees": "0",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "individual_exits_after_reversal": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          }
+        },
+        {
+          "action": "Close low at 90",
+          "outstanding": [
+            "0",
+            "1"
+          ],
+          "net_premiums_received_to_date": "-36",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "136",
+            "exact_reference": "136",
+            "separate": "136"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "90",
+            "exact_reference": "90",
+            "separate": "-10"
+          }
+        },
+        {
+          "action": "Later close high at 90",
+          "outstanding": [
+            "0",
+            "0"
+          ],
+          "net_premiums_received_to_date": "-126",
+          "fees_to_date": "0",
+          "exact_backing": "0",
+          "separate_backing": "0",
+          "net_personal_cash_committed": {
+            "asce": "126",
+            "exact_reference": "126",
+            "separate": "126"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-10",
+            "exact_reference": "-10",
+            "separate": "-10"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "136",
+        "exact_reference": "136",
+        "separate": "146"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "136",
+        "exact_reference": "136",
+        "separate": "146"
+      },
+      "initial_cash_required": {
+        "asce": "46",
+        "exact_reference": "46",
+        "separate": "146"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "126",
+      "fees": "0",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "open_low_then_high": {
+      "rows": [
+        {
+          "action": "Open low",
+          "outstanding": [
+            "1",
+            "0"
+          ],
+          "net_premiums_received_to_date": "22",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "78",
+            "exact_reference": "78",
+            "separate": "78"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "78",
+            "exact_reference": "78",
+            "separate": "78"
+          }
+        },
+        {
+          "action": "Open high",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-32",
+            "exact_reference": "-32",
+            "separate": "68"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "78",
+        "exact_reference": "78",
+        "separate": "146"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "78",
+        "exact_reference": "78",
+        "separate": "146"
+      },
+      "initial_cash_required": {
+        "asce": "78",
+        "exact_reference": "78",
+        "separate": "78"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "46",
+      "fees": "0",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "open_high_then_low": {
+      "rows": [
+        {
+          "action": "Open high",
+          "outstanding": [
+            "0",
+            "1"
+          ],
+          "net_premiums_received_to_date": "32",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "68",
+            "exact_reference": "68",
+            "separate": "68"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "68",
+            "exact_reference": "68",
+            "separate": "68"
+          }
+        },
+        {
+          "action": "Open low",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "46",
+            "exact_reference": "46",
+            "separate": "146"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-22",
+            "exact_reference": "-22",
+            "separate": "78"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "68",
+        "exact_reference": "68",
+        "separate": "146"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "68",
+        "exact_reference": "68",
+        "separate": "146"
+      },
+      "initial_cash_required": {
+        "asce": "68",
+        "exact_reference": "68",
+        "separate": "68"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "46",
+      "fees": "0",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    }
+  },
+  "flat_one_per_batch_fee_sensitivity": {
+    "hold_tail_settlement": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "1",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "initial_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "47",
+      "fees": "1",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "hold_middle_settlement": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "1",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "initial_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "user_final_redemption": "100",
+      "final_realized_loss_negative_means_profit": "-53",
+      "fees": "1",
+      "settlement": "100",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "hold_void_settlement": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "1",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "initial_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "user_final_redemption": "100",
+      "final_realized_loss_negative_means_profit": "-53",
+      "fees": "1",
+      "settlement": "VOID",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "halve_then_close_package": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "1",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          }
+        },
+        {
+          "action": "Buy back half of both",
+          "outstanding": [
+            "1/2",
+            "1/2"
+          ],
+          "net_premiums_received_to_date": "27",
+          "fees_to_date": "2",
+          "exact_backing": "50",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "25",
+            "exact_reference": "25",
+            "separate": "75"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-22",
+            "exact_reference": "-22",
+            "separate": "-72"
+          }
+        },
+        {
+          "action": "Close the remainder together",
+          "outstanding": [
+            "0",
+            "0"
+          ],
+          "net_premiums_received_to_date": "0",
+          "fees_to_date": "3",
+          "exact_backing": "0",
+          "separate_backing": "0",
+          "net_personal_cash_committed": {
+            "asce": "3",
+            "exact_reference": "3",
+            "separate": "3"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-22",
+            "exact_reference": "-22",
+            "separate": "-72"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "initial_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "3",
+      "fees": "3",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "individual_exits_after_reversal": {
+      "rows": [
+        {
+          "action": "Open both obligations together",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "1",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "47",
+            "exact_reference": "47",
+            "separate": "147"
+          }
+        },
+        {
+          "action": "Close low at 90",
+          "outstanding": [
+            "0",
+            "1"
+          ],
+          "net_premiums_received_to_date": "-36",
+          "fees_to_date": "2",
+          "exact_backing": "100",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "138",
+            "exact_reference": "138",
+            "separate": "138"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "91",
+            "exact_reference": "91",
+            "separate": "-9"
+          }
+        },
+        {
+          "action": "Later close high at 90",
+          "outstanding": [
+            "0",
+            "0"
+          ],
+          "net_premiums_received_to_date": "-126",
+          "fees_to_date": "3",
+          "exact_backing": "0",
+          "separate_backing": "0",
+          "net_personal_cash_committed": {
+            "asce": "129",
+            "exact_reference": "129",
+            "separate": "129"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-9",
+            "exact_reference": "-9",
+            "separate": "-9"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "138",
+        "exact_reference": "138",
+        "separate": "147"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "138",
+        "exact_reference": "138",
+        "separate": "147"
+      },
+      "initial_cash_required": {
+        "asce": "47",
+        "exact_reference": "47",
+        "separate": "147"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "129",
+      "fees": "3",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "open_low_then_high": {
+      "rows": [
+        {
+          "action": "Open low",
+          "outstanding": [
+            "1",
+            "0"
+          ],
+          "net_premiums_received_to_date": "22",
+          "fees_to_date": "1",
+          "exact_backing": "100",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "79",
+            "exact_reference": "79",
+            "separate": "79"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "79",
+            "exact_reference": "79",
+            "separate": "79"
+          }
+        },
+        {
+          "action": "Open high",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "2",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "48",
+            "exact_reference": "48",
+            "separate": "148"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-31",
+            "exact_reference": "-31",
+            "separate": "69"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "79",
+        "exact_reference": "79",
+        "separate": "148"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "79",
+        "exact_reference": "79",
+        "separate": "148"
+      },
+      "initial_cash_required": {
+        "asce": "79",
+        "exact_reference": "79",
+        "separate": "79"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "48",
+      "fees": "2",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "open_high_then_low": {
+      "rows": [
+        {
+          "action": "Open high",
+          "outstanding": [
+            "0",
+            "1"
+          ],
+          "net_premiums_received_to_date": "32",
+          "fees_to_date": "1",
+          "exact_backing": "100",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "69",
+            "exact_reference": "69",
+            "separate": "69"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "69",
+            "exact_reference": "69",
+            "separate": "69"
+          }
+        },
+        {
+          "action": "Open low",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "54",
+          "fees_to_date": "2",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "48",
+            "exact_reference": "48",
+            "separate": "148"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-21",
+            "exact_reference": "-21",
+            "separate": "79"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "69",
+        "exact_reference": "69",
+        "separate": "148"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "69",
+        "exact_reference": "69",
+        "separate": "148"
+      },
+      "initial_cash_required": {
+        "asce": "69",
+        "exact_reference": "69",
+        "separate": "69"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "48",
+      "fees": "2",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    }
+  },
+  "reversal_grid": {
+    "paths": 625,
+    "price_range": "0 to 120 in steps of 5, including adverse offers above the payout cap",
+    "peak_asce_formula": "max(46, 46 + first buyback, first buyback + second buyback - 54)",
+    "peak_separate_formula": "max(146, 46 + first buyback, first buyback + second buyback - 54)",
+    "exact_reference_ties": 625,
+    "asce_saving_vs_separate_range": [
+      0,
+      100
+    ]
+  },
+  "bounded_ramp_settlement_checks": 10,
+  "exit_limit": {
+    "only_original_46_available": "individual exit rejected without state change",
+    "extra_deposit_required_for_low_exit_at_90": "90"
+  },
+  "public_price_replay": {
+    "opening_credit": "81",
+    "closing_cost": "551/5",
+    "fee_status": "excluded; no venue account or Asce provider quote",
+    "execution_status": "counterfactual replay of displayed leg prices, not a firm package or completed fill",
+    "assumed_package_close": {
+      "rows": [
+        {
+          "action": "Open at displayed leg prices, assumed package",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "81",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "19",
+            "exact_reference": "19",
+            "separate": "119"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "19",
+            "exact_reference": "19",
+            "separate": "119"
+          }
+        },
+        {
+          "action": "Close at displayed leg prices, assumed package",
+          "outstanding": [
+            "0",
+            "0"
+          ],
+          "net_premiums_received_to_date": "-146/5",
+          "fees_to_date": "0",
+          "exact_backing": "0",
+          "separate_backing": "0",
+          "net_personal_cash_committed": {
+            "asce": "146/5",
+            "exact_reference": "146/5",
+            "separate": "146/5"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "51/5",
+            "exact_reference": "51/5",
+            "separate": "-449/5"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "146/5",
+        "exact_reference": "146/5",
+        "separate": "119"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "146/5",
+        "exact_reference": "146/5",
+        "separate": "119"
+      },
+      "initial_cash_required": {
+        "asce": "19",
+        "exact_reference": "19",
+        "separate": "119"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "146/5",
+      "fees": "0",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    },
+    "sequential_spread_close": {
+      "rows": [
+        {
+          "action": "Open at displayed leg prices, assumed package",
+          "outstanding": [
+            "1",
+            "1"
+          ],
+          "net_premiums_received_to_date": "81",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "200",
+          "net_personal_cash_committed": {
+            "asce": "19",
+            "exact_reference": "19",
+            "separate": "119"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "19",
+            "exact_reference": "19",
+            "separate": "119"
+          }
+        },
+        {
+          "action": "Close low spread",
+          "outstanding": [
+            "0",
+            "1"
+          ],
+          "net_premiums_received_to_date": "-28",
+          "fees_to_date": "0",
+          "exact_backing": "100",
+          "separate_backing": "100",
+          "net_personal_cash_committed": {
+            "asce": "128",
+            "exact_reference": "128",
+            "separate": "128"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "109",
+            "exact_reference": "109",
+            "separate": "9"
+          }
+        },
+        {
+          "action": "Close high spread",
+          "outstanding": [
+            "0",
+            "0"
+          ],
+          "net_premiums_received_to_date": "-146/5",
+          "fees_to_date": "0",
+          "exact_backing": "0",
+          "separate_backing": "0",
+          "net_personal_cash_committed": {
+            "asce": "146/5",
+            "exact_reference": "146/5",
+            "separate": "146/5"
+          },
+          "cash_deposit_positive_withdrawal_negative": {
+            "asce": "-494/5",
+            "exact_reference": "-494/5",
+            "separate": "-494/5"
+          }
+        }
+      ],
+      "peak_personal_cash_required": {
+        "asce": "128",
+        "exact_reference": "128",
+        "separate": "128"
+      },
+      "gross_deposits_including_recycled_money": {
+        "asce": "128",
+        "exact_reference": "128",
+        "separate": "128"
+      },
+      "initial_cash_required": {
+        "asce": "19",
+        "exact_reference": "19",
+        "separate": "119"
+      },
+      "user_final_redemption": "0",
+      "final_realized_loss_negative_means_profit": "146/5",
+      "fees": "0",
+      "settlement": "106",
+      "verdict_vs_exact_reference": "tie"
+    }
+  },
+  "reference_status": "independent exact-funding arithmetic, not a deployed competing venue",
+  "prices": "stipulated and identical across methods; no live fills"
+}

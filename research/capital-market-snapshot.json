@@ -1,0 +1,218 @@
+{
+  "scope": "Public order-book snapshot; not a firm package quote or verified execution. No account-specific margin access.",
+  "quantity_per_leg": "1",
+  "legs": [
+    {
+      "source_url": "https://www.deribit.com/api/v2/public/get_order_book?instrument_name=ETH_USDC-25SEP26-2700-P&depth=10",
+      "retrieved_at_utc": "2026-09-17T14:56:35.934735+00:00",
+      "raw_sha256": "0d4d200edf409917bd2dcae04005c2b348b6ac61f4694585798aa25959562405",
+      "exchange_time_utc": "2026-09-17T14:56:34.556000+00:00",
+      "data": {
+        "instrument_name": "ETH_USDC-25SEP26-2700-P",
+        "timestamp": 1789656994556,
+        "state": "open",
+        "best_bid_price": "238.0",
+        "best_bid_amount": "5.0",
+        "best_ask_price": "252.0",
+        "best_ask_amount": "5.0",
+        "bids": [
+          [
+            "238.0",
+            "5.0"
+          ],
+          [
+            "237.0",
+            "157.7"
+          ],
+          [
+            "0.2",
+            "36.0"
+          ]
+        ],
+        "asks": [
+          [
+            "252.0",
+            "5.0"
+          ],
+          [
+            "253.0",
+            "157.7"
+          ]
+        ],
+        "index_price": "2462.42",
+        "underlying_price": "2465.12",
+        "mark_price": "244.52"
+      }
+    },
+    {
+      "source_url": "https://www.deribit.com/api/v2/public/get_order_book?instrument_name=ETH_USDC-25SEP26-2800-P&depth=10",
+      "retrieved_at_utc": "2026-09-17T14:56:35.945205+00:00",
+      "raw_sha256": "92aa4ff1200132bd55700c09d460d318746ee8e9888d9559a47367a13cd1bd5c",
+      "exchange_time_utc": "2026-09-17T14:56:34.556000+00:00",
+      "data": {
+        "instrument_name": "ETH_USDC-25SEP26-2800-P",
+        "timestamp": 1789656994556,
+        "state": "open",
+        "best_bid_price": "333.0",
+        "best_bid_amount": "5.0",
+        "best_ask_price": "347.0",
+        "best_ask_amount": "5.0",
+        "bids": [
+          [
+            "333.0",
+            "5.0"
+          ],
+          [
+            "332.0",
+            "151.1"
+          ]
+        ],
+        "asks": [
+          [
+            "347.0",
+            "5.0"
+          ],
+          [
+            "348.0",
+            "151.1"
+          ]
+        ],
+        "index_price": "2462.42",
+        "underlying_price": "2465.12",
+        "mark_price": "339.84"
+      }
+    },
+    {
+      "source_url": "https://www.deribit.com/api/v2/public/get_order_book?instrument_name=ETH_USDC-25SEP26-3000-C&depth=10",
+      "retrieved_at_utc": "2026-09-17T14:56:35.934735+00:00",
+      "raw_sha256": "498b35df0ff94148494a6cf428e189c317a7987c2df361ce71f93cf08ac2a0e1",
+      "exchange_time_utc": "2026-09-17T14:56:34.556000+00:00",
+      "data": {
+        "instrument_name": "ETH_USDC-25SEP26-3000-C",
+        "timestamp": 1789656994556,
+        "state": "open",
+        "best_bid_price": "1.4",
+        "best_bid_amount": "155.1",
+        "best_ask_price": "2.0",
+        "best_ask_amount": "447.9",
+        "bids": [
+          [
+            "1.4",
+            "155.1"
+          ],
+          [
+            "1.0",
+            "448.5"
+          ],
+          [
+            "0.8",
+            "448.1"
+          ],
+          [
+            "0.6",
+            "0.1"
+          ],
+          [
+            "0.4",
+            "0.1"
+          ]
+        ],
+        "asks": [
+          [
+            "2.0",
+            "447.9"
+          ],
+          [
+            "2.2",
+            "452.2"
+          ],
+          [
+            "2.4",
+            "5.0"
+          ],
+          [
+            "2.6",
+            "150.1"
+          ],
+          [
+            "16.0",
+            "3132.0"
+          ],
+          [
+            "30.0",
+            "1.0"
+          ],
+          [
+            "60.0",
+            "4.0"
+          ],
+          [
+            "200.0",
+            "66.2"
+          ],
+          [
+            "300.0",
+            "55.6"
+          ]
+        ],
+        "index_price": "2462.42",
+        "underlying_price": "2465.12",
+        "mark_price": "1.83"
+      }
+    },
+    {
+      "source_url": "https://www.deribit.com/api/v2/public/get_order_book?instrument_name=ETH_USDC-25SEP26-3100-C&depth=10",
+      "retrieved_at_utc": "2026-09-17T14:56:35.934735+00:00",
+      "raw_sha256": "9a6b4cc17ea38d0693a78e6cc2afc7617cca34bfffa6eb7d8b4cb05b1dd9a325",
+      "exchange_time_utc": "2026-09-17T14:56:34.556000+00:00",
+      "data": {
+        "instrument_name": "ETH_USDC-25SEP26-3100-C",
+        "timestamp": 1789656994556,
+        "state": "open",
+        "best_bid_price": "0.8",
+        "best_bid_amount": "155.1",
+        "best_ask_price": "1.4",
+        "best_ask_amount": "449.0",
+        "bids": [
+          [
+            "0.8",
+            "155.1"
+          ],
+          [
+            "0.6",
+            "449.3"
+          ],
+          [
+            "0.4",
+            "449.0"
+          ],
+          [
+            "0.2",
+            "0.1"
+          ]
+        ],
+        "asks": [
+          [
+            "1.4",
+            "449.0"
+          ],
+          [
+            "1.6",
+            "448.8"
+          ],
+          [
+            "1.8",
+            "155.1"
+          ],
+          [
+            "200.0",
+            "14.7"
+          ]
+        ],
+        "index_price": "2462.42",
+        "underlying_price": "2465.12",
+        "mark_price": "1.22"
+      }
+    }
+  ]
+}

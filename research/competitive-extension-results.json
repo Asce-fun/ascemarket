@@ -1,0 +1,53 @@
+{
+  "status": "exact certificate coefficients and vault inequalities passed",
+  "bound": "775/2",
+  "attained_by": "competitive-case-results.json allocation",
+  "scope": "arbitrary finite additional put strikes and offsetting positions; same expiry, underlying and strike/collateral asset; Gamma type-0 formula in exact arithmetic",
+  "phi_pieces": [
+    [
+      0,
+      3000,
+      "0",
+      "0"
+    ],
+    [
+      3000,
+      3200,
+      "1",
+      "-3000"
+    ],
+    [
+      3200,
+      3600,
+      "1/16",
+      "0"
+    ],
+    [
+      3600,
+      3800,
+      "1",
+      "-3375"
+    ],
+    [
+      3800,
+      null,
+      "17/152",
+      "0"
+    ]
+  ],
+  "finite_inequality_checks": 29487,
+  "continuous_proof": "research/competitive-followup.md",
+  "hypothetical_weekly_capital_value": {
+    "released_cash": "375/2",
+    "annual_rate_assumption": "1/10",
+    "days": 7,
+    "simple_interest_value": "105/292"
+  },
+  "unresolved": [
+    "live deployed margin and precision",
+    "mixed call/spot/borrowing constructions",
+    "Deribit margin preview",
+    "actual prices and complete costs",
+    "recurring user value"
+  ]
+}

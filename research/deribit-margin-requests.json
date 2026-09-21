@@ -1,0 +1,103 @@
+{
+  "status": "prepared, not submitted; no authenticated results",
+  "endpoint": "https://www.deribit.com/api/v2/private/simulate_portfolio",
+  "source": "https://docs.deribit.com/api-reference/account-management/private-simulate_portfolio",
+  "scope": "account:read",
+  "expiry": "25SEP26; replace consistently once expired and revalidate catalogue",
+  "position_units": "ETH underlying units for these ETH_USDC options; contract_size=1 in saved catalogue",
+  "cautions": [
+    "add_positions=false replaces simulated positions, not necessarily cash, other account settings or all collateral context",
+    "No order or account modification is requested",
+    "IM is an equity requirement, not directly the personal deposit; reconcile signed options value, net premium and fees",
+    "Do not send credentials or authentication headers with exported results"
+  ],
+  "requests": [
+    {
+      "case": "empty_control",
+      "payload": {
+        "jsonrpc": "2.0",
+        "id": 1,
+        "method": "private/simulate_portfolio",
+        "params": {
+          "currency": "USDC",
+          "add_positions": false,
+          "simulated_positions": {}
+        }
+      }
+    },
+    {
+      "case": "both_butterflies",
+      "payload": {
+        "jsonrpc": "2.0",
+        "id": 2,
+        "method": "private/simulate_portfolio",
+        "params": {
+          "currency": "USDC",
+          "add_positions": false,
+          "simulated_positions": {
+            "ETH_USDC-25SEP26-2800-P": -1,
+            "ETH_USDC-25SEP26-3000-P": 2,
+            "ETH_USDC-25SEP26-3200-P": -1,
+            "ETH_USDC-25SEP26-3400-P": -1,
+            "ETH_USDC-25SEP26-3600-P": 2,
+            "ETH_USDC-25SEP26-3800-P": -1
+          }
+        }
+      }
+    },
+    {
+      "case": "half_both",
+      "payload": {
+        "jsonrpc": "2.0",
+        "id": 3,
+        "method": "private/simulate_portfolio",
+        "params": {
+          "currency": "USDC",
+          "add_positions": false,
+          "simulated_positions": {
+            "ETH_USDC-25SEP26-2800-P": -0.5,
+            "ETH_USDC-25SEP26-3000-P": 1,
+            "ETH_USDC-25SEP26-3200-P": -0.5,
+            "ETH_USDC-25SEP26-3400-P": -0.5,
+            "ETH_USDC-25SEP26-3600-P": 1,
+            "ETH_USDC-25SEP26-3800-P": -0.5
+          }
+        }
+      }
+    },
+    {
+      "case": "first_only",
+      "payload": {
+        "jsonrpc": "2.0",
+        "id": 4,
+        "method": "private/simulate_portfolio",
+        "params": {
+          "currency": "USDC",
+          "add_positions": false,
+          "simulated_positions": {
+            "ETH_USDC-25SEP26-2800-P": -1,
+            "ETH_USDC-25SEP26-3000-P": 2,
+            "ETH_USDC-25SEP26-3200-P": -1
+          }
+        }
+      }
+    },
+    {
+      "case": "second_only",
+      "payload": {
+        "jsonrpc": "2.0",
+        "id": 5,
+        "method": "private/simulate_portfolio",
+        "params": {
+          "currency": "USDC",
+          "add_positions": false,
+          "simulated_positions": {
+            "ETH_USDC-25SEP26-3400-P": -1,
+            "ETH_USDC-25SEP26-3600-P": 2,
+            "ETH_USDC-25SEP26-3800-P": -1
+          }
+        }
+      }
+    }
+  ]
+}
