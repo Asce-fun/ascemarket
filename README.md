@@ -1,23 +1,34 @@
-# ascemarket
+# AsceMarket
 
-Research prototype for trading bounded payouts with fully funded, portfolio-level accounting.
+A market for reusable protection, combined positions and fully funded payouts.
 
-- [Product specification](ps.md)
-- [Core design](core-design.md)
-- [Quote workflow](quote-workflow.md)
-- [Model and reproduction instructions](model/README.md)
-- [Latest repository review](research/product-review-2026-09-19.md)
+The current design is defined by:
 
-Run the accounting tests:
+- [Product vision and experience](AsceMarket.md)
+- [Generic v2 cover kernel](v2-kernel-spec.md)
+
+These documents specify the intended product and engine. A finite-state v2 research model now exists; it is not a deployed or audited implementation.
+
+## V2 reference model
+
+- [Implementation and reproduction instructions](model_v2/README.md)
+- [Kernel tests, replay results and quantitative findings](model_v2/results.md)
+- [Portable exact-value fixtures](model_v2/fixtures.json)
+
+Run the v2 kernel tests and synthetic lifecycle backtests:
 
 ```sh
-python3 -B -m unittest model.test_model -q
+python3 -B -m unittest model_v2.test_kernel -q
+python3 -B -m model_v2.research --seeds 200 --steps 100
 ```
 
-Run the local demonstration:
+These checks validate accounting behavior on specified cases. They do not backtest market prices or maker profitability.
 
-```sh
-python3 -B -m model.server
-```
+## Historical research
 
-Open http://127.0.0.1:8111. This is a research demonstration, not a production exchange. It has no real funds, wallet authentication or persistent trading accounts. See the repository review for known limitations.
+The earlier `model/` implementation has been removed. The files in `research/` retain historical analysis and evidence; they are not the current product specification.
+
+- [Historical repository review](research/product-review-2026-09-19.md)
+- [Plain-language kernel guide](v2-kernel-explained.md)
+- [Frontend vision](frontend-vision.md)
+- [Interactive markets mockup](mockups/markets.html)

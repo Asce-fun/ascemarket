@@ -1,0 +1,4346 @@
+{
+  "schema": "ascemarket-v2-research-results-1",
+  "scope": "Synthetic accounting replay; no historical feed, executable market prices or profitability backtest.",
+  "environment": {
+    "python": "3.14.0",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "source_sha256": {
+    "__init__.py": "8619e5970e0c53a483fc81cea9c8de17d2e9bdc0f1eff9f7467924bae9302da9",
+    "examples.py": "8cb699342231961324481d73e638e30029d6fad8b82084a97f3d463ca46deea1",
+    "fixtures.py": "17b85e45518d4a87d28f92004a507d4b49aa051b50865d73e9d366f1bed1db38",
+    "ledger.py": "2a537282cc95738136df78edbf395cbd69830e8868649024a3442ad92d5ad3cd",
+    "oracle.py": "64e4beb059738e6c23dd9521177b5c7b57b1cb77070c0a1b402de70e741d17a8",
+    "research.py": "deedbd7a42bf5cdcd9cf93608839cf1eb1742a1f502f604aef628cb7d972f2e2",
+    "schema.py": "c0a4a069ff04f5b2d97e0fdba60ffb36c71f075278ab97b3acad43fe19df8096",
+    "test_kernel.py": "7ba44abd43aef2142837c315ab494f0e78cdb39f7c198cc5f7b9beaa75ea399f",
+    "verifier.py": "0cd23b15ad0452df1ded56ca49346639a18fefbc4a3ea703533ef7e59b469fb9"
+  },
+  "examples": {
+    "rainfall": {
+      "scenario": "synthetic rainfall lifecycle",
+      "stages": [
+        {
+          "stage": "opened",
+          "epoch": 0,
+          "paths": 10,
+          "escrow": 100,
+          "withdrawable": {
+            "maker": 0,
+            "buyer_a": 0,
+            "buyer_b": 0,
+            "treasury": 0
+          }
+        },
+        {
+          "stage": "noon_12_reported_not_final",
+          "epoch": 1,
+          "paths": 10,
+          "escrow": 100,
+          "withdrawable": {
+            "maker": 0,
+            "buyer_a": 0,
+            "buyer_b": 0,
+            "treasury": 0
+          }
+        },
+        {
+          "stage": "noon_12_contractually_final",
+          "epoch": 2,
+          "paths": 2,
+          "escrow": 100,
+          "withdrawable": {
+            "maker": 0,
+            "buyer_a": 100,
+            "buyer_b": 0,
+            "treasury": 0
+          }
+        },
+        {
+          "stage": "buyer_withdrew_100",
+          "epoch": 2,
+          "paths": 2,
+          "escrow": 0,
+          "withdrawable": {
+            "maker": 0,
+            "buyer_a": 0,
+            "buyer_b": 0,
+            "treasury": 0
+          }
+        },
+        {
+          "stage": "later_cancellation_preserves_payment",
+          "epoch": 3,
+          "paths": 1,
+          "escrow": 0,
+          "withdrawable": {
+            "maker": 0,
+            "buyer_a": 0,
+            "buyer_b": 0,
+            "treasury": 0
+          }
+        },
+        {
+          "stage": "all_claimed",
+          "epoch": 3,
+          "paths": 1,
+          "escrow": 0,
+          "withdrawable": {
+            "maker": 0,
+            "buyer_a": 0,
+            "buyer_b": 0,
+            "treasury": 0
+          }
+        }
+      ],
+      "maker_deposit": 20,
+      "separate_obligation_deposits": 120,
+      "buyer_a_profit": 70,
+      "maker_profit": -20,
+      "note": "Early winning-claim payment, not extra maker collateral release; prices are fixtures."
+    },
+    "football": {
+      "maker_contribution": 40,
+      "separate_contributions": 140,
+      "escrow": 100,
+      "paths_checked": 20,
+      "window_buyer_withdrawable_after_1_1": 100
+    },
+    "free_price": {
+      "two_checkpoint_gross_backing": 200
+    }
+  },
+  "randomized": {
+    "seeds": 200,
+    "steps_per_seed": 100,
+    "accepted": 14274,
+    "rejected_without_mutation": 2792,
+    "skipped_resolved_cover": 2934,
+    "path_audits": 448826,
+    "all_final_escrows_zero": true,
+    "seed_results": [
+      {
+        "seed": 0,
+        "accepted": 65,
+        "rejected": 13,
+        "skipped_resolved_cover": 22,
+        "rejection_reasons": {
+          "negative escrow": 1,
+          "missing or mismatched approval": 9,
+          "underfunded account: c": 3
+        },
+        "path_audits": 1739,
+        "peak_sum_positive_net_deposits": 540,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 1,
+        "accepted": 75,
+        "rejected": 16,
+        "skipped_resolved_cover": 9,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "underfunded account: a": 3,
+          "underfunded account: b": 4,
+          "missing or mismatched approval": 6
+        },
+        "path_audits": 2584,
+        "peak_sum_positive_net_deposits": 570,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 2,
+        "accepted": 61,
+        "rejected": 12,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: b": 2,
+          "underfunded account: c": 1,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1784,
+        "peak_sum_positive_net_deposits": 727,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 3,
+        "accepted": 76,
+        "rejected": 12,
+        "skipped_resolved_cover": 12,
+        "rejection_reasons": {
+          "underfunded account: b": 4,
+          "underfunded account: c": 3,
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 2
+        },
+        "path_audits": 2187,
+        "peak_sum_positive_net_deposits": 512,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 4,
+        "accepted": 82,
+        "rejected": 15,
+        "skipped_resolved_cover": 3,
+        "rejection_reasons": {
+          "underfunded account: b": 1,
+          "missing or mismatched approval": 10,
+          "underfunded account: c": 2,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3225,
+        "peak_sum_positive_net_deposits": 726,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 5,
+        "accepted": 71,
+        "rejected": 16,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "underfunded account: a": 6,
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 4,
+          "underfunded account: b": 3
+        },
+        "path_audits": 2449,
+        "peak_sum_positive_net_deposits": 671,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 6,
+        "accepted": 74,
+        "rejected": 15,
+        "skipped_resolved_cover": 11,
+        "rejection_reasons": {
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 10,
+          "underfunded account: c": 2
+        },
+        "path_audits": 2804,
+        "peak_sum_positive_net_deposits": 543,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 7,
+        "accepted": 74,
+        "rejected": 16,
+        "skipped_resolved_cover": 10,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 3,
+          "underfunded account: b": 2,
+          "underfunded account: c": 2
+        },
+        "path_audits": 2481,
+        "peak_sum_positive_net_deposits": 448,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 8,
+        "accepted": 76,
+        "rejected": 10,
+        "skipped_resolved_cover": 14,
+        "rejection_reasons": {
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 5,
+          "underfunded account: a": 2,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2179,
+        "peak_sum_positive_net_deposits": 724,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 9,
+        "accepted": 72,
+        "rejected": 15,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "missing or mismatched approval": 13,
+          "underfunded account: c": 2
+        },
+        "path_audits": 2414,
+        "peak_sum_positive_net_deposits": 539,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 10,
+        "accepted": 60,
+        "rejected": 10,
+        "skipped_resolved_cover": 30,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1513,
+        "peak_sum_positive_net_deposits": 409,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 11,
+        "accepted": 81,
+        "rejected": 19,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: c": 4,
+          "underfunded account: b": 4
+        },
+        "path_audits": 3521,
+        "peak_sum_positive_net_deposits": 426,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 12,
+        "accepted": 56,
+        "rejected": 18,
+        "skipped_resolved_cover": 26,
+        "rejection_reasons": {
+          "underfunded account: c": 6,
+          "underfunded account: a": 4,
+          "missing or mismatched approval": 5,
+          "underfunded account: b": 3
+        },
+        "path_audits": 1727,
+        "peak_sum_positive_net_deposits": 234,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 13,
+        "accepted": 73,
+        "rejected": 20,
+        "skipped_resolved_cover": 7,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: a": 4,
+          "underfunded account: c": 3,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2842,
+        "peak_sum_positive_net_deposits": 735,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 14,
+        "accepted": 68,
+        "rejected": 15,
+        "skipped_resolved_cover": 17,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: b": 3,
+          "underfunded account: a": 3,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1784,
+        "peak_sum_positive_net_deposits": 374,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "seed": 15,
+        "accepted": 79,
+        "rejected": 21,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 8,
+          "underfunded account: a": 7,
+          "underfunded account: b": 4
+        },
+        "path_audits": 3541,
+        "peak_sum_positive_net_deposits": 645,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 16,
+        "accepted": 76,
+        "rejected": 18,
+        "skipped_resolved_cover": 6,
+        "rejection_reasons": {
+          "underfunded account: b": 4,
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 4,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1997,
+        "peak_sum_positive_net_deposits": 595,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 17,
+        "accepted": 63,
+        "rejected": 12,
+        "skipped_resolved_cover": 25,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 2,
+          "underfunded account: a": 2,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1678,
+        "peak_sum_positive_net_deposits": 395,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 18,
+        "accepted": 78,
+        "rejected": 12,
+        "skipped_resolved_cover": 10,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: c": 4,
+          "underfunded account: a": 2
+        },
+        "path_audits": 2565,
+        "peak_sum_positive_net_deposits": 712,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 19,
+        "accepted": 81,
+        "rejected": 15,
+        "skipped_resolved_cover": 4,
+        "rejection_reasons": {
+          "negative escrow": 1,
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 2
+        },
+        "path_audits": 2675,
+        "peak_sum_positive_net_deposits": 657,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 20,
+        "accepted": 76,
+        "rejected": 13,
+        "skipped_resolved_cover": 11,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "missing or mismatched approval": 5,
+          "underfunded account: c": 2,
+          "underfunded account: a": 4
+        },
+        "path_audits": 2174,
+        "peak_sum_positive_net_deposits": 514,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 21,
+        "accepted": 69,
+        "rejected": 8,
+        "skipped_resolved_cover": 23,
+        "rejection_reasons": {
+          "underfunded account: a": 5,
+          "underfunded account: b": 1,
+          "missing or mismatched approval": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1486,
+        "peak_sum_positive_net_deposits": 552,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 22,
+        "accepted": 57,
+        "rejected": 11,
+        "skipped_resolved_cover": 32,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: c": 1,
+          "underfunded account: b": 4
+        },
+        "path_audits": 1388,
+        "peak_sum_positive_net_deposits": 393,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 23,
+        "accepted": 78,
+        "rejected": 20,
+        "skipped_resolved_cover": 2,
+        "rejection_reasons": {
+          "missing or mismatched approval": 13,
+          "underfunded account: c": 1,
+          "underfunded account: a": 5,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2981,
+        "peak_sum_positive_net_deposits": 856,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 24,
+        "accepted": 77,
+        "rejected": 11,
+        "skipped_resolved_cover": 12,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: b": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1761,
+        "peak_sum_positive_net_deposits": 582,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 25,
+        "accepted": 67,
+        "rejected": 17,
+        "skipped_resolved_cover": 16,
+        "rejection_reasons": {
+          "underfunded account: a": 1,
+          "underfunded account: b": 4,
+          "missing or mismatched approval": 12
+        },
+        "path_audits": 2493,
+        "peak_sum_positive_net_deposits": 549,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 26,
+        "accepted": 58,
+        "rejected": 13,
+        "skipped_resolved_cover": 29,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 8,
+          "underfunded account: c": 2,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1750,
+        "peak_sum_positive_net_deposits": 451,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 27,
+        "accepted": 66,
+        "rejected": 12,
+        "skipped_resolved_cover": 22,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 4,
+          "underfunded account: a": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1806,
+        "peak_sum_positive_net_deposits": 307,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 28,
+        "accepted": 60,
+        "rejected": 21,
+        "skipped_resolved_cover": 19,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: a": 4,
+          "underfunded account: b": 4,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1585,
+        "peak_sum_positive_net_deposits": 592,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 29,
+        "accepted": 87,
+        "rejected": 12,
+        "skipped_resolved_cover": 1,
+        "rejection_reasons": {
+          "underfunded account: b": 1,
+          "missing or mismatched approval": 10,
+          "underfunded account: a": 1
+        },
+        "path_audits": 3308,
+        "peak_sum_positive_net_deposits": 797,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "seed": 30,
+        "accepted": 80,
+        "rejected": 11,
+        "skipped_resolved_cover": 9,
+        "rejection_reasons": {
+          "missing or mismatched approval": 5,
+          "underfunded account: c": 4,
+          "underfunded account: b": 1,
+          "underfunded account: a": 1
+        },
+        "path_audits": 2692,
+        "peak_sum_positive_net_deposits": 860,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 31,
+        "accepted": 58,
+        "rejected": 10,
+        "skipped_resolved_cover": 32,
+        "rejection_reasons": {
+          "underfunded account: c": 1,
+          "missing or mismatched approval": 9
+        },
+        "path_audits": 1537,
+        "peak_sum_positive_net_deposits": 380,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "seed": 32,
+        "accepted": 71,
+        "rejected": 9,
+        "skipped_resolved_cover": 20,
+        "rejection_reasons": {
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 6,
+          "underfunded account: a": 1
+        },
+        "path_audits": 2403,
+        "peak_sum_positive_net_deposits": 589,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "seed": 33,
+        "accepted": 87,
+        "rejected": 13,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 4,
+          "underfunded account: b": 4,
+          "underfunded account: c": 3,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3543,
+        "peak_sum_positive_net_deposits": 1061,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 34,
+        "accepted": 72,
+        "rejected": 15,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 3,
+          "underfunded account: c": 2,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2118,
+        "peak_sum_positive_net_deposits": 615,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 35,
+        "accepted": 72,
+        "rejected": 15,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 8,
+          "underfunded account: b": 1,
+          "underfunded account: c": 4
+        },
+        "path_audits": 2150,
+        "peak_sum_positive_net_deposits": 773,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 36,
+        "accepted": 69,
+        "rejected": 16,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 9,
+          "underfunded account: c": 4,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1827,
+        "peak_sum_positive_net_deposits": 468,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 37,
+        "accepted": 66,
+        "rejected": 5,
+        "skipped_resolved_cover": 29,
+        "rejection_reasons": {
+          "underfunded account: a": 1,
+          "missing or mismatched approval": 2,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1545,
+        "peak_sum_positive_net_deposits": 455,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 38,
+        "accepted": 58,
+        "rejected": 17,
+        "skipped_resolved_cover": 25,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: a": 4,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1714,
+        "peak_sum_positive_net_deposits": 464,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 39,
+        "accepted": 76,
+        "rejected": 20,
+        "skipped_resolved_cover": 4,
+        "rejection_reasons": {
+          "missing or mismatched approval": 12,
+          "underfunded account: c": 4,
+          "underfunded account: b": 1,
+          "underfunded account: a": 3
+        },
+        "path_audits": 2643,
+        "peak_sum_positive_net_deposits": 763,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 40,
+        "accepted": 74,
+        "rejected": 19,
+        "skipped_resolved_cover": 7,
+        "rejection_reasons": {
+          "missing or mismatched approval": 5,
+          "underfunded account: b": 4,
+          "underfunded account: a": 7,
+          "underfunded account: c": 3
+        },
+        "path_audits": 2762,
+        "peak_sum_positive_net_deposits": 655,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 41,
+        "accepted": 57,
+        "rejected": 17,
+        "skipped_resolved_cover": 26,
+        "rejection_reasons": {
+          "underfunded account: a": 3,
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 9,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1709,
+        "peak_sum_positive_net_deposits": 590,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 42,
+        "accepted": 66,
+        "rejected": 13,
+        "skipped_resolved_cover": 21,
+        "rejection_reasons": {
+          "underfunded account: c": 1,
+          "missing or mismatched approval": 10,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1842,
+        "peak_sum_positive_net_deposits": 605,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 43,
+        "accepted": 53,
+        "rejected": 17,
+        "skipped_resolved_cover": 30,
+        "rejection_reasons": {
+          "missing or mismatched approval": 12,
+          "underfunded account: a": 2,
+          "underfunded account: b": 2,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1603,
+        "peak_sum_positive_net_deposits": 562,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 44,
+        "accepted": 73,
+        "rejected": 9,
+        "skipped_resolved_cover": 18,
+        "rejection_reasons": {
+          "underfunded account: c": 4,
+          "missing or mismatched approval": 5
+        },
+        "path_audits": 2100,
+        "peak_sum_positive_net_deposits": 441,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 45,
+        "accepted": 70,
+        "rejected": 10,
+        "skipped_resolved_cover": 20,
+        "rejection_reasons": {
+          "missing or mismatched approval": 4,
+          "underfunded account: c": 3,
+          "underfunded account: a": 1,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2015,
+        "peak_sum_positive_net_deposits": 299,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 46,
+        "accepted": 57,
+        "rejected": 11,
+        "skipped_resolved_cover": 32,
+        "rejection_reasons": {
+          "underfunded account: a": 4,
+          "missing or mismatched approval": 5,
+          "underfunded account: c": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1593,
+        "peak_sum_positive_net_deposits": 498,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 47,
+        "accepted": 66,
+        "rejected": 19,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "negative escrow": 1,
+          "underfunded account: a": 3,
+          "underfunded account: b": 3,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1758,
+        "peak_sum_positive_net_deposits": 452,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 48,
+        "accepted": 72,
+        "rejected": 27,
+        "skipped_resolved_cover": 1,
+        "rejection_reasons": {
+          "underfunded account: a": 5,
+          "missing or mismatched approval": 16,
+          "underfunded account: c": 5,
+          "underfunded account: b": 1
+        },
+        "path_audits": 3228,
+        "peak_sum_positive_net_deposits": 688,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 49,
+        "accepted": 72,
+        "rejected": 9,
+        "skipped_resolved_cover": 19,
+        "rejection_reasons": {
+          "underfunded account: c": 1,
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 5,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2090,
+        "peak_sum_positive_net_deposits": 562,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "seed": 50,
+        "accepted": 86,
+        "rejected": 14,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 3,
+          "underfunded account: c": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 3507,
+        "peak_sum_positive_net_deposits": 716,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 51,
+        "accepted": 60,
+        "rejected": 14,
+        "skipped_resolved_cover": 26,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 3,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1591,
+        "peak_sum_positive_net_deposits": 631,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 52,
+        "accepted": 58,
+        "rejected": 14,
+        "skipped_resolved_cover": 28,
+        "rejection_reasons": {
+          "underfunded account: c": 1,
+          "underfunded account: a": 4,
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 3
+        },
+        "path_audits": 1404,
+        "peak_sum_positive_net_deposits": 439,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 53,
+        "accepted": 74,
+        "rejected": 13,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "underfunded account: b": 5,
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 4,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1733,
+        "peak_sum_positive_net_deposits": 472,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 54,
+        "accepted": 81,
+        "rejected": 15,
+        "skipped_resolved_cover": 4,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: a": 3,
+          "underfunded account: c": 3,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2801,
+        "peak_sum_positive_net_deposits": 775,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 55,
+        "accepted": 62,
+        "rejected": 18,
+        "skipped_resolved_cover": 20,
+        "rejection_reasons": {
+          "underfunded account: a": 6,
+          "underfunded account: b": 2,
+          "missing or mismatched approval": 10
+        },
+        "path_audits": 1712,
+        "peak_sum_positive_net_deposits": 405,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 56,
+        "accepted": 84,
+        "rejected": 16,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "underfunded account: a": 4,
+          "missing or mismatched approval": 7,
+          "underfunded account: c": 4,
+          "underfunded account: b": 1
+        },
+        "path_audits": 3519,
+        "peak_sum_positive_net_deposits": 1146,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 57,
+        "accepted": 75,
+        "rejected": 20,
+        "skipped_resolved_cover": 5,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: c": 4,
+          "underfunded account: b": 5,
+          "underfunded account: a": 4
+        },
+        "path_audits": 2292,
+        "peak_sum_positive_net_deposits": 599,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "seed": 58,
+        "accepted": 71,
+        "rejected": 10,
+        "skipped_resolved_cover": 19,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 2,
+          "underfunded account: a": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 2050,
+        "peak_sum_positive_net_deposits": 470,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 59,
+        "accepted": 69,
+        "rejected": 17,
+        "skipped_resolved_cover": 14,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "underfunded account: c": 2,
+          "underfunded account: a": 3,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1955,
+        "peak_sum_positive_net_deposits": 615,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 60,
+        "accepted": 77,
+        "rejected": 15,
+        "skipped_resolved_cover": 8,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "underfunded account: a": 4,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2276,
+        "peak_sum_positive_net_deposits": 596,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 61,
+        "accepted": 50,
+        "rejected": 6,
+        "skipped_resolved_cover": 44,
+        "rejection_reasons": {
+          "underfunded account: b": 1,
+          "missing or mismatched approval": 2,
+          "underfunded account: c": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1399,
+        "peak_sum_positive_net_deposits": 633,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 62,
+        "accepted": 61,
+        "rejected": 11,
+        "skipped_resolved_cover": 28,
+        "rejection_reasons": {
+          "missing or mismatched approval": 5,
+          "underfunded account: b": 4,
+          "underfunded account: c": 1,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1815,
+        "peak_sum_positive_net_deposits": 494,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 63,
+        "accepted": 69,
+        "rejected": 10,
+        "skipped_resolved_cover": 21,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2073,
+        "peak_sum_positive_net_deposits": 468,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 64,
+        "accepted": 79,
+        "rejected": 18,
+        "skipped_resolved_cover": 3,
+        "rejection_reasons": {
+          "missing or mismatched approval": 13,
+          "underfunded account: b": 2,
+          "underfunded account: c": 1,
+          "underfunded account: a": 2
+        },
+        "path_audits": 2990,
+        "peak_sum_positive_net_deposits": 405,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 65,
+        "accepted": 87,
+        "rejected": 13,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: a": 2,
+          "underfunded account: c": 2,
+          "underfunded account: b": 1
+        },
+        "path_audits": 3541,
+        "peak_sum_positive_net_deposits": 718,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 66,
+        "accepted": 70,
+        "rejected": 18,
+        "skipped_resolved_cover": 12,
+        "rejection_reasons": {
+          "underfunded account: c": 5,
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 2,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1913,
+        "peak_sum_positive_net_deposits": 516,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "seed": 67,
+        "accepted": 78,
+        "rejected": 19,
+        "skipped_resolved_cover": 3,
+        "rejection_reasons": {
+          "missing or mismatched approval": 13,
+          "negative escrow": 1,
+          "underfunded account: a": 3,
+          "underfunded account: b": 2
+        },
+        "path_audits": 3278,
+        "peak_sum_positive_net_deposits": 728,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 68,
+        "accepted": 62,
+        "rejected": 11,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "negative escrow": 1,
+          "missing or mismatched approval": 10
+        },
+        "path_audits": 1861,
+        "peak_sum_positive_net_deposits": 589,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 69,
+        "accepted": 68,
+        "rejected": 12,
+        "skipped_resolved_cover": 20,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 3
+        },
+        "path_audits": 1683,
+        "peak_sum_positive_net_deposits": 364,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "seed": 70,
+        "accepted": 77,
+        "rejected": 10,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 4,
+          "underfunded account: a": 3
+        },
+        "path_audits": 2066,
+        "peak_sum_positive_net_deposits": 612,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 71,
+        "accepted": 74,
+        "rejected": 15,
+        "skipped_resolved_cover": 11,
+        "rejection_reasons": {
+          "underfunded account: c": 4,
+          "missing or mismatched approval": 9,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2153,
+        "peak_sum_positive_net_deposits": 593,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 72,
+        "accepted": 80,
+        "rejected": 20,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "underfunded account: c": 5,
+          "underfunded account: b": 3,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3527,
+        "peak_sum_positive_net_deposits": 612,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 73,
+        "accepted": 81,
+        "rejected": 18,
+        "skipped_resolved_cover": 1,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: b": 4,
+          "negative escrow": 1,
+          "underfunded account: c": 3,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3294,
+        "peak_sum_positive_net_deposits": 732,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 74,
+        "accepted": 71,
+        "rejected": 16,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: a": 3,
+          "underfunded account: c": 3,
+          "underfunded account: b": 4
+        },
+        "path_audits": 1947,
+        "peak_sum_positive_net_deposits": 652,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 75,
+        "accepted": 78,
+        "rejected": 20,
+        "skipped_resolved_cover": 2,
+        "rejection_reasons": {
+          "missing or mismatched approval": 13,
+          "underfunded account: b": 2,
+          "underfunded account: a": 4,
+          "underfunded account: c": 1
+        },
+        "path_audits": 2481,
+        "peak_sum_positive_net_deposits": 862,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 76,
+        "accepted": 78,
+        "rejected": 13,
+        "skipped_resolved_cover": 9,
+        "rejection_reasons": {
+          "underfunded account: c": 1,
+          "missing or mismatched approval": 10,
+          "underfunded account: a": 2
+        },
+        "path_audits": 2476,
+        "peak_sum_positive_net_deposits": 421,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 77,
+        "accepted": 72,
+        "rejected": 15,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: a": 6,
+          "underfunded account: c": 2
+        },
+        "path_audits": 2200,
+        "peak_sum_positive_net_deposits": 483,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 78,
+        "accepted": 75,
+        "rejected": 16,
+        "skipped_resolved_cover": 9,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: a": 2,
+          "underfunded account: c": 3
+        },
+        "path_audits": 1893,
+        "peak_sum_positive_net_deposits": 685,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 79,
+        "accepted": 71,
+        "rejected": 10,
+        "skipped_resolved_cover": 19,
+        "rejection_reasons": {
+          "underfunded account: a": 5,
+          "missing or mismatched approval": 3,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1654,
+        "peak_sum_positive_net_deposits": 434,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 80,
+        "accepted": 76,
+        "rejected": 15,
+        "skipped_resolved_cover": 9,
+        "rejection_reasons": {
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 12,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2323,
+        "peak_sum_positive_net_deposits": 664,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 81,
+        "accepted": 80,
+        "rejected": 20,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: c": 1,
+          "underfunded account: a": 2,
+          "underfunded account: b": 6
+        },
+        "path_audits": 3539,
+        "peak_sum_positive_net_deposits": 745,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 82,
+        "accepted": 63,
+        "rejected": 11,
+        "skipped_resolved_cover": 26,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 3,
+          "underfunded account: a": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1651,
+        "peak_sum_positive_net_deposits": 583,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 83,
+        "accepted": 68,
+        "rejected": 16,
+        "skipped_resolved_cover": 16,
+        "rejection_reasons": {
+          "underfunded account: c": 5,
+          "underfunded account: b": 2,
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 7
+        },
+        "path_audits": 1871,
+        "peak_sum_positive_net_deposits": 276,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 84,
+        "accepted": 80,
+        "rejected": 12,
+        "skipped_resolved_cover": 8,
+        "rejection_reasons": {
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 5,
+          "underfunded account: a": 4
+        },
+        "path_audits": 2089,
+        "peak_sum_positive_net_deposits": 329,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 85,
+        "accepted": 80,
+        "rejected": 7,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 2,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2040,
+        "peak_sum_positive_net_deposits": 444,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 86,
+        "accepted": 64,
+        "rejected": 19,
+        "skipped_resolved_cover": 17,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 2,
+          "underfunded account: b": 5,
+          "underfunded account: c": 3
+        },
+        "path_audits": 1638,
+        "peak_sum_positive_net_deposits": 295,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "seed": 87,
+        "accepted": 82,
+        "rejected": 10,
+        "skipped_resolved_cover": 8,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2071,
+        "peak_sum_positive_net_deposits": 977,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 88,
+        "accepted": 78,
+        "rejected": 11,
+        "skipped_resolved_cover": 11,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: b": 2,
+          "underfunded account: c": 1,
+          "underfunded account: a": 1
+        },
+        "path_audits": 2440,
+        "peak_sum_positive_net_deposits": 514,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 89,
+        "accepted": 63,
+        "rejected": 10,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "underfunded account: b": 1,
+          "missing or mismatched approval": 3,
+          "underfunded account: c": 4,
+          "underfunded account: a": 2
+        },
+        "path_audits": 1754,
+        "peak_sum_positive_net_deposits": 428,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 90,
+        "accepted": 74,
+        "rejected": 20,
+        "skipped_resolved_cover": 6,
+        "rejection_reasons": {
+          "missing or mismatched approval": 14,
+          "underfunded account: b": 3,
+          "underfunded account: c": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 2227,
+        "peak_sum_positive_net_deposits": 826,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 91,
+        "accepted": 76,
+        "rejected": 9,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 5,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2130,
+        "peak_sum_positive_net_deposits": 428,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 92,
+        "accepted": 67,
+        "rejected": 8,
+        "skipped_resolved_cover": 25,
+        "rejection_reasons": {
+          "missing or mismatched approval": 5,
+          "underfunded account: b": 1,
+          "underfunded account: c": 1,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1586,
+        "peak_sum_positive_net_deposits": 305,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 93,
+        "accepted": 74,
+        "rejected": 15,
+        "skipped_resolved_cover": 11,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 5,
+          "underfunded account: c": 1
+        },
+        "path_audits": 2011,
+        "peak_sum_positive_net_deposits": 409,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 94,
+        "accepted": 67,
+        "rejected": 12,
+        "skipped_resolved_cover": 21,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "underfunded account: b": 2,
+          "underfunded account: a": 4,
+          "missing or mismatched approval": 3
+        },
+        "path_audits": 2432,
+        "peak_sum_positive_net_deposits": 590,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 95,
+        "accepted": 76,
+        "rejected": 14,
+        "skipped_resolved_cover": 10,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: a": 4,
+          "underfunded account: c": 2,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2767,
+        "peak_sum_positive_net_deposits": 555,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 96,
+        "accepted": 72,
+        "rejected": 14,
+        "skipped_resolved_cover": 14,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: a": 3,
+          "underfunded account: b": 2,
+          "underfunded account: c": 3
+        },
+        "path_audits": 1839,
+        "peak_sum_positive_net_deposits": 632,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 97,
+        "accepted": 59,
+        "rejected": 21,
+        "skipped_resolved_cover": 20,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "underfunded account: b": 4,
+          "underfunded account: c": 4,
+          "underfunded account: a": 3
+        },
+        "path_audits": 1469,
+        "peak_sum_positive_net_deposits": 433,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 98,
+        "accepted": 63,
+        "rejected": 13,
+        "skipped_resolved_cover": 24,
+        "rejection_reasons": {
+          "underfunded account: b": 4,
+          "underfunded account: a": 4,
+          "missing or mismatched approval": 5
+        },
+        "path_audits": 1663,
+        "peak_sum_positive_net_deposits": 303,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 99,
+        "accepted": 88,
+        "rejected": 12,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: c": 2,
+          "underfunded account: b": 1
+        },
+        "path_audits": 3531,
+        "peak_sum_positive_net_deposits": 794,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 100,
+        "accepted": 79,
+        "rejected": 14,
+        "skipped_resolved_cover": 7,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 7,
+          "underfunded account: a": 3
+        },
+        "path_audits": 2664,
+        "peak_sum_positive_net_deposits": 616,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 101,
+        "accepted": 76,
+        "rejected": 13,
+        "skipped_resolved_cover": 11,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: b": 4
+        },
+        "path_audits": 2306,
+        "peak_sum_positive_net_deposits": 471,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 102,
+        "accepted": 77,
+        "rejected": 19,
+        "skipped_resolved_cover": 4,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "underfunded account: b": 3,
+          "underfunded account: a": 1,
+          "underfunded account: c": 5
+        },
+        "path_audits": 2879,
+        "peak_sum_positive_net_deposits": 638,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          2
+        ]
+      },
+      {
+        "seed": 103,
+        "accepted": 83,
+        "rejected": 11,
+        "skipped_resolved_cover": 6,
+        "rejection_reasons": {
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 6,
+          "underfunded account: c": 1,
+          "underfunded account: a": 1
+        },
+        "path_audits": 2561,
+        "peak_sum_positive_net_deposits": 745,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 104,
+        "accepted": 81,
+        "rejected": 15,
+        "skipped_resolved_cover": 4,
+        "rejection_reasons": {
+          "underfunded account: c": 4,
+          "underfunded account: b": 2,
+          "missing or mismatched approval": 7,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3023,
+        "peak_sum_positive_net_deposits": 853,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "seed": 105,
+        "accepted": 70,
+        "rejected": 15,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 10,
+          "underfunded account: a": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1960,
+        "peak_sum_positive_net_deposits": 680,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 106,
+        "accepted": 61,
+        "rejected": 7,
+        "skipped_resolved_cover": 32,
+        "rejection_reasons": {
+          "underfunded account: c": 4,
+          "missing or mismatched approval": 3
+        },
+        "path_audits": 1398,
+        "peak_sum_positive_net_deposits": 504,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 107,
+        "accepted": 87,
+        "rejected": 7,
+        "skipped_resolved_cover": 6,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "missing or mismatched approval": 5
+        },
+        "path_audits": 2931,
+        "peak_sum_positive_net_deposits": 960,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 108,
+        "accepted": 57,
+        "rejected": 14,
+        "skipped_resolved_cover": 29,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: b": 2,
+          "underfunded account: a": 2,
+          "underfunded account: c": 3
+        },
+        "path_audits": 1636,
+        "peak_sum_positive_net_deposits": 532,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 109,
+        "accepted": 62,
+        "rejected": 18,
+        "skipped_resolved_cover": 20,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: c": 3,
+          "underfunded account: b": 1,
+          "underfunded account: a": 3
+        },
+        "path_audits": 1604,
+        "peak_sum_positive_net_deposits": 544,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 110,
+        "accepted": 73,
+        "rejected": 10,
+        "skipped_resolved_cover": 17,
+        "rejection_reasons": {
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 4,
+          "underfunded account: c": 1,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1915,
+        "peak_sum_positive_net_deposits": 376,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 111,
+        "accepted": 81,
+        "rejected": 19,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 13,
+          "underfunded account: a": 1
+        },
+        "path_audits": 3529,
+        "peak_sum_positive_net_deposits": 624,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 112,
+        "accepted": 71,
+        "rejected": 12,
+        "skipped_resolved_cover": 17,
+        "rejection_reasons": {
+          "negative escrow": 1,
+          "underfunded account: a": 2,
+          "underfunded account: b": 1,
+          "missing or mismatched approval": 6,
+          "underfunded account: c": 2
+        },
+        "path_audits": 2102,
+        "peak_sum_positive_net_deposits": 592,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 113,
+        "accepted": 66,
+        "rejected": 7,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 3,
+          "underfunded account: c": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1810,
+        "peak_sum_positive_net_deposits": 514,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "seed": 114,
+        "accepted": 65,
+        "rejected": 16,
+        "skipped_resolved_cover": 19,
+        "rejection_reasons": {
+          "missing or mismatched approval": 14,
+          "underfunded account: a": 2
+        },
+        "path_audits": 1840,
+        "peak_sum_positive_net_deposits": 360,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 115,
+        "accepted": 90,
+        "rejected": 10,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "underfunded account: c": 4,
+          "missing or mismatched approval": 4,
+          "underfunded account: b": 2
+        },
+        "path_audits": 3531,
+        "peak_sum_positive_net_deposits": 866,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 116,
+        "accepted": 51,
+        "rejected": 16,
+        "skipped_resolved_cover": 33,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: c": 4,
+          "underfunded account: b": 2,
+          "underfunded account: a": 4
+        },
+        "path_audits": 1646,
+        "peak_sum_positive_net_deposits": 351,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 117,
+        "accepted": 77,
+        "rejected": 18,
+        "skipped_resolved_cover": 5,
+        "rejection_reasons": {
+          "missing or mismatched approval": 12,
+          "underfunded account: a": 1,
+          "underfunded account: b": 2,
+          "underfunded account: c": 3
+        },
+        "path_audits": 2912,
+        "peak_sum_positive_net_deposits": 424,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 118,
+        "accepted": 67,
+        "rejected": 15,
+        "skipped_resolved_cover": 18,
+        "rejection_reasons": {
+          "underfunded account: c": 4,
+          "underfunded account: a": 1,
+          "missing or mismatched approval": 9,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1921,
+        "peak_sum_positive_net_deposits": 401,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 119,
+        "accepted": 77,
+        "rejected": 23,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 16,
+          "underfunded account: c": 3,
+          "underfunded account: a": 1,
+          "underfunded account: b": 3
+        },
+        "path_audits": 3541,
+        "peak_sum_positive_net_deposits": 618,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 120,
+        "accepted": 67,
+        "rejected": 20,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "underfunded account: a": 4,
+          "underfunded account: c": 4,
+          "missing or mismatched approval": 9,
+          "underfunded account: b": 3
+        },
+        "path_audits": 2131,
+        "peak_sum_positive_net_deposits": 775,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 121,
+        "accepted": 59,
+        "rejected": 10,
+        "skipped_resolved_cover": 31,
+        "rejection_reasons": {
+          "missing or mismatched approval": 3,
+          "underfunded account: b": 2,
+          "underfunded account: c": 3,
+          "underfunded account: a": 2
+        },
+        "path_audits": 1597,
+        "peak_sum_positive_net_deposits": 406,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 122,
+        "accepted": 67,
+        "rejected": 10,
+        "skipped_resolved_cover": 23,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 5,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2002,
+        "peak_sum_positive_net_deposits": 446,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 123,
+        "accepted": 66,
+        "rejected": 9,
+        "skipped_resolved_cover": 25,
+        "rejection_reasons": {
+          "missing or mismatched approval": 5,
+          "underfunded account: c": 2,
+          "underfunded account: a": 2
+        },
+        "path_audits": 1778,
+        "peak_sum_positive_net_deposits": 601,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "seed": 124,
+        "accepted": 67,
+        "rejected": 23,
+        "skipped_resolved_cover": 10,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "missing or mismatched approval": 15,
+          "underfunded account: c": 3,
+          "underfunded account: a": 3
+        },
+        "path_audits": 2272,
+        "peak_sum_positive_net_deposits": 499,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 125,
+        "accepted": 57,
+        "rejected": 14,
+        "skipped_resolved_cover": 29,
+        "rejection_reasons": {
+          "missing or mismatched approval": 12,
+          "underfunded account: b": 1,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1505,
+        "peak_sum_positive_net_deposits": 359,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 126,
+        "accepted": 81,
+        "rejected": 14,
+        "skipped_resolved_cover": 5,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: c": 6,
+          "underfunded account: a": 1
+        },
+        "path_audits": 2546,
+        "peak_sum_positive_net_deposits": 626,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 127,
+        "accepted": 76,
+        "rejected": 14,
+        "skipped_resolved_cover": 10,
+        "rejection_reasons": {
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 6,
+          "underfunded account: a": 3,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1535,
+        "peak_sum_positive_net_deposits": 582,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 128,
+        "accepted": 53,
+        "rejected": 12,
+        "skipped_resolved_cover": 35,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 6,
+          "negative escrow": 1,
+          "underfunded account: b": 3
+        },
+        "path_audits": 1408,
+        "peak_sum_positive_net_deposits": 412,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 129,
+        "accepted": 85,
+        "rejected": 12,
+        "skipped_resolved_cover": 3,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: c": 1,
+          "underfunded account: b": 2,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3244,
+        "peak_sum_positive_net_deposits": 897,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 130,
+        "accepted": 69,
+        "rejected": 6,
+        "skipped_resolved_cover": 25,
+        "rejection_reasons": {
+          "underfunded account: b": 1,
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 3
+        },
+        "path_audits": 1652,
+        "peak_sum_positive_net_deposits": 266,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 131,
+        "accepted": 84,
+        "rejected": 16,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 14,
+          "underfunded account: c": 2
+        },
+        "path_audits": 3517,
+        "peak_sum_positive_net_deposits": 684,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 132,
+        "accepted": 76,
+        "rejected": 21,
+        "skipped_resolved_cover": 3,
+        "rejection_reasons": {
+          "missing or mismatched approval": 15,
+          "underfunded account: c": 4,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3306,
+        "peak_sum_positive_net_deposits": 719,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 133,
+        "accepted": 60,
+        "rejected": 10,
+        "skipped_resolved_cover": 30,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1538,
+        "peak_sum_positive_net_deposits": 389,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 134,
+        "accepted": 65,
+        "rejected": 16,
+        "skipped_resolved_cover": 19,
+        "rejection_reasons": {
+          "underfunded account: c": 5,
+          "missing or mismatched approval": 7,
+          "underfunded account: b": 2,
+          "underfunded account: a": 2
+        },
+        "path_audits": 1964,
+        "peak_sum_positive_net_deposits": 386,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 135,
+        "accepted": 76,
+        "rejected": 9,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 2270,
+        "peak_sum_positive_net_deposits": 438,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 136,
+        "accepted": 82,
+        "rejected": 8,
+        "skipped_resolved_cover": 10,
+        "rejection_reasons": {
+          "underfunded account: c": 1,
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2293,
+        "peak_sum_positive_net_deposits": 668,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 137,
+        "accepted": 53,
+        "rejected": 20,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "underfunded account: b": 4,
+          "underfunded account: c": 5,
+          "missing or mismatched approval": 7,
+          "underfunded account: a": 4
+        },
+        "path_audits": 1678,
+        "peak_sum_positive_net_deposits": 421,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "seed": 138,
+        "accepted": 71,
+        "rejected": 8,
+        "skipped_resolved_cover": 21,
+        "rejection_reasons": {
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 2,
+          "underfunded account: b": 1,
+          "underfunded account: a": 3
+        },
+        "path_audits": 1419,
+        "peak_sum_positive_net_deposits": 483,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 139,
+        "accepted": 55,
+        "rejected": 8,
+        "skipped_resolved_cover": 37,
+        "rejection_reasons": {
+          "missing or mismatched approval": 4,
+          "underfunded account: a": 4
+        },
+        "path_audits": 1294,
+        "peak_sum_positive_net_deposits": 337,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "seed": 140,
+        "accepted": 79,
+        "rejected": 18,
+        "skipped_resolved_cover": 3,
+        "rejection_reasons": {
+          "underfunded account: b": 4,
+          "missing or mismatched approval": 8,
+          "underfunded account: c": 4,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3306,
+        "peak_sum_positive_net_deposits": 617,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 141,
+        "accepted": 74,
+        "rejected": 13,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "underfunded account: c": 2,
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 5,
+          "underfunded account: a": 3
+        },
+        "path_audits": 1998,
+        "peak_sum_positive_net_deposits": 422,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 142,
+        "accepted": 81,
+        "rejected": 17,
+        "skipped_resolved_cover": 2,
+        "rejection_reasons": {
+          "underfunded account: a": 3,
+          "underfunded account: b": 4,
+          "missing or mismatched approval": 8,
+          "underfunded account: c": 2
+        },
+        "path_audits": 3303,
+        "peak_sum_positive_net_deposits": 690,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 143,
+        "accepted": 66,
+        "rejected": 13,
+        "skipped_resolved_cover": 21,
+        "rejection_reasons": {
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 2,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1904,
+        "peak_sum_positive_net_deposits": 425,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 144,
+        "accepted": 81,
+        "rejected": 19,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "missing or mismatched approval": 13,
+          "underfunded account: a": 3,
+          "underfunded account: c": 1
+        },
+        "path_audits": 3541,
+        "peak_sum_positive_net_deposits": 724,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 145,
+        "accepted": 71,
+        "rejected": 12,
+        "skipped_resolved_cover": 17,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 7,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2346,
+        "peak_sum_positive_net_deposits": 483,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 146,
+        "accepted": 85,
+        "rejected": 14,
+        "skipped_resolved_cover": 1,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 4,
+          "underfunded account: a": 2,
+          "underfunded account: c": 2
+        },
+        "path_audits": 3148,
+        "peak_sum_positive_net_deposits": 837,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 147,
+        "accepted": 68,
+        "rejected": 16,
+        "skipped_resolved_cover": 16,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: c": 5,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1837,
+        "peak_sum_positive_net_deposits": 402,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 148,
+        "accepted": 77,
+        "rejected": 8,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "underfunded account: c": 2,
+          "missing or mismatched approval": 4,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2184,
+        "peak_sum_positive_net_deposits": 527,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 149,
+        "accepted": 78,
+        "rejected": 12,
+        "skipped_resolved_cover": 10,
+        "rejection_reasons": {
+          "missing or mismatched approval": 5,
+          "underfunded account: a": 4,
+          "underfunded account: b": 3
+        },
+        "path_audits": 2649,
+        "peak_sum_positive_net_deposits": 633,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 150,
+        "accepted": 72,
+        "rejected": 6,
+        "skipped_resolved_cover": 22,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "missing or mismatched approval": 3,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1679,
+        "peak_sum_positive_net_deposits": 741,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 151,
+        "accepted": 56,
+        "rejected": 11,
+        "skipped_resolved_cover": 33,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: c": 1,
+          "underfunded account: a": 1,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1340,
+        "peak_sum_positive_net_deposits": 329,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 152,
+        "accepted": 75,
+        "rejected": 13,
+        "skipped_resolved_cover": 12,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: c": 1,
+          "underfunded account: b": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 2743,
+        "peak_sum_positive_net_deposits": 522,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 153,
+        "accepted": 82,
+        "rejected": 11,
+        "skipped_resolved_cover": 7,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: a": 1,
+          "underfunded account: b": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 2464,
+        "peak_sum_positive_net_deposits": 593,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 154,
+        "accepted": 72,
+        "rejected": 16,
+        "skipped_resolved_cover": 12,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "underfunded account: c": 4,
+          "missing or mismatched approval": 8,
+          "underfunded account: a": 2
+        },
+        "path_audits": 2308,
+        "peak_sum_positive_net_deposits": 490,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 155,
+        "accepted": 80,
+        "rejected": 15,
+        "skipped_resolved_cover": 5,
+        "rejection_reasons": {
+          "underfunded account: c": 5,
+          "missing or mismatched approval": 9,
+          "underfunded account: b": 1
+        },
+        "path_audits": 3074,
+        "peak_sum_positive_net_deposits": 709,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 156,
+        "accepted": 77,
+        "rejected": 10,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "negative escrow": 1,
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 3,
+          "underfunded account: a": 1,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1818,
+        "peak_sum_positive_net_deposits": 896,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 157,
+        "accepted": 69,
+        "rejected": 7,
+        "skipped_resolved_cover": 24,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 4,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1442,
+        "peak_sum_positive_net_deposits": 418,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 158,
+        "accepted": 83,
+        "rejected": 17,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: c": 3,
+          "underfunded account: b": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 3519,
+        "peak_sum_positive_net_deposits": 660,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 159,
+        "accepted": 69,
+        "rejected": 4,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "missing or mismatched approval": 3,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1470,
+        "peak_sum_positive_net_deposits": 525,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 160,
+        "accepted": 71,
+        "rejected": 7,
+        "skipped_resolved_cover": 22,
+        "rejection_reasons": {
+          "missing or mismatched approval": 4,
+          "underfunded account: c": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1723,
+        "peak_sum_positive_net_deposits": 531,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 161,
+        "accepted": 63,
+        "rejected": 26,
+        "skipped_resolved_cover": 11,
+        "rejection_reasons": {
+          "underfunded account: c": 5,
+          "underfunded account: b": 10,
+          "underfunded account: a": 1,
+          "missing or mismatched approval": 10
+        },
+        "path_audits": 2702,
+        "peak_sum_positive_net_deposits": 406,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 162,
+        "accepted": 55,
+        "rejected": 6,
+        "skipped_resolved_cover": 39,
+        "rejection_reasons": {
+          "underfunded account: a": 4,
+          "missing or mismatched approval": 1,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1304,
+        "peak_sum_positive_net_deposits": 259,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          3
+        ]
+      },
+      {
+        "seed": 163,
+        "accepted": 52,
+        "rejected": 12,
+        "skipped_resolved_cover": 36,
+        "rejection_reasons": {
+          "underfunded account: c": 5,
+          "missing or mismatched approval": 4,
+          "underfunded account: b": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1533,
+        "peak_sum_positive_net_deposits": 475,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 164,
+        "accepted": 76,
+        "rejected": 10,
+        "skipped_resolved_cover": 14,
+        "rejection_reasons": {
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 3,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1944,
+        "peak_sum_positive_net_deposits": 472,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 165,
+        "accepted": 67,
+        "rejected": 15,
+        "skipped_resolved_cover": 18,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "underfunded account: a": 4,
+          "missing or mismatched approval": 7,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2047,
+        "peak_sum_positive_net_deposits": 651,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          1
+        ]
+      },
+      {
+        "seed": 166,
+        "accepted": 78,
+        "rejected": 17,
+        "skipped_resolved_cover": 5,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "underfunded account: a": 6,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2850,
+        "peak_sum_positive_net_deposits": 786,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 167,
+        "accepted": 57,
+        "rejected": 16,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "missing or mismatched approval": 8,
+          "underfunded account: c": 4,
+          "underfunded account: a": 2,
+          "underfunded account: b": 2
+        },
+        "path_audits": 1422,
+        "peak_sum_positive_net_deposits": 387,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 168,
+        "accepted": 63,
+        "rejected": 22,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: a": 8,
+          "underfunded account: c": 1,
+          "underfunded account: b": 4
+        },
+        "path_audits": 2353,
+        "peak_sum_positive_net_deposits": 787,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 169,
+        "accepted": 64,
+        "rejected": 9,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1746,
+        "peak_sum_positive_net_deposits": 421,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 170,
+        "accepted": 72,
+        "rejected": 13,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "underfunded account: c": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1594,
+        "peak_sum_positive_net_deposits": 451,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 171,
+        "accepted": 63,
+        "rejected": 16,
+        "skipped_resolved_cover": 21,
+        "rejection_reasons": {
+          "negative escrow": 1,
+          "missing or mismatched approval": 8,
+          "underfunded account: b": 2,
+          "underfunded account: a": 2,
+          "underfunded account: c": 3
+        },
+        "path_audits": 1782,
+        "peak_sum_positive_net_deposits": 364,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 172,
+        "accepted": 79,
+        "rejected": 21,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "underfunded account: b": 2,
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 14,
+          "underfunded account: c": 2
+        },
+        "path_audits": 3511,
+        "peak_sum_positive_net_deposits": 578,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 173,
+        "accepted": 67,
+        "rejected": 16,
+        "skipped_resolved_cover": 17,
+        "rejection_reasons": {
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 11,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1807,
+        "peak_sum_positive_net_deposits": 594,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "seed": 174,
+        "accepted": 65,
+        "rejected": 11,
+        "skipped_resolved_cover": 24,
+        "rejection_reasons": {
+          "underfunded account: a": 1,
+          "underfunded account: b": 4,
+          "missing or mismatched approval": 5,
+          "underfunded account: c": 1
+        },
+        "path_audits": 1499,
+        "peak_sum_positive_net_deposits": 474,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "seed": 175,
+        "accepted": 68,
+        "rejected": 16,
+        "skipped_resolved_cover": 16,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "underfunded account: b": 3,
+          "underfunded account: c": 5,
+          "missing or mismatched approval": 6
+        },
+        "path_audits": 2440,
+        "peak_sum_positive_net_deposits": 478,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 176,
+        "accepted": 70,
+        "rejected": 21,
+        "skipped_resolved_cover": 9,
+        "rejection_reasons": {
+          "underfunded account: a": 5,
+          "underfunded account: b": 4,
+          "missing or mismatched approval": 11,
+          "underfunded account: c": 1
+        },
+        "path_audits": 2726,
+        "peak_sum_positive_net_deposits": 494,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      {
+        "seed": 177,
+        "accepted": 88,
+        "rejected": 12,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: b": 2,
+          "underfunded account: c": 1
+        },
+        "path_audits": 3255,
+        "peak_sum_positive_net_deposits": 391,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 178,
+        "accepted": 72,
+        "rejected": 7,
+        "skipped_resolved_cover": 21,
+        "rejection_reasons": {
+          "missing or mismatched approval": 4,
+          "underfunded account: c": 2,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1786,
+        "peak_sum_positive_net_deposits": 399,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 179,
+        "accepted": 80,
+        "rejected": 17,
+        "skipped_resolved_cover": 3,
+        "rejection_reasons": {
+          "missing or mismatched approval": 11,
+          "underfunded account: a": 2,
+          "underfunded account: c": 3,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2738,
+        "peak_sum_positive_net_deposits": 606,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "seed": 180,
+        "accepted": 62,
+        "rejected": 20,
+        "skipped_resolved_cover": 18,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: c": 4,
+          "underfunded account: b": 4,
+          "underfunded account: a": 3
+        },
+        "path_audits": 1633,
+        "peak_sum_positive_net_deposits": 460,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 181,
+        "accepted": 80,
+        "rejected": 20,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "underfunded account: b": 4,
+          "missing or mismatched approval": 10,
+          "underfunded account: c": 4,
+          "underfunded account: a": 2
+        },
+        "path_audits": 3525,
+        "peak_sum_positive_net_deposits": 584,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 182,
+        "accepted": 61,
+        "rejected": 12,
+        "skipped_resolved_cover": 27,
+        "rejection_reasons": {
+          "missing or mismatched approval": 9,
+          "underfunded account: c": 1,
+          "underfunded account: b": 1,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1511,
+        "peak_sum_positive_net_deposits": 347,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 183,
+        "accepted": 73,
+        "rejected": 17,
+        "skipped_resolved_cover": 10,
+        "rejection_reasons": {
+          "missing or mismatched approval": 10,
+          "underfunded account: c": 4,
+          "underfunded account: a": 2,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2110,
+        "peak_sum_positive_net_deposits": 426,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 184,
+        "accepted": 66,
+        "rejected": 16,
+        "skipped_resolved_cover": 18,
+        "rejection_reasons": {
+          "underfunded account: b": 3,
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 8,
+          "underfunded account: c": 2
+        },
+        "path_audits": 1944,
+        "peak_sum_positive_net_deposits": 459,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 185,
+        "accepted": 80,
+        "rejected": 9,
+        "skipped_resolved_cover": 11,
+        "rejection_reasons": {
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 4,
+          "underfunded account: c": 2
+        },
+        "path_audits": 2621,
+        "peak_sum_positive_net_deposits": 573,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          3
+        ]
+      },
+      {
+        "seed": 186,
+        "accepted": 66,
+        "rejected": 20,
+        "skipped_resolved_cover": 14,
+        "rejection_reasons": {
+          "negative escrow": 1,
+          "missing or mismatched approval": 6,
+          "underfunded account: c": 4,
+          "underfunded account: a": 6,
+          "underfunded account: b": 3
+        },
+        "path_audits": 2033,
+        "peak_sum_positive_net_deposits": 498,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          1,
+          4
+        ]
+      },
+      {
+        "seed": 187,
+        "accepted": 78,
+        "rejected": 16,
+        "skipped_resolved_cover": 6,
+        "rejection_reasons": {
+          "underfunded account: a": 5,
+          "missing or mismatched approval": 7,
+          "underfunded account: b": 2,
+          "underfunded account: c": 2
+        },
+        "path_audits": 2228,
+        "peak_sum_positive_net_deposits": 509,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          3
+        ]
+      },
+      {
+        "seed": 188,
+        "accepted": 84,
+        "rejected": 15,
+        "skipped_resolved_cover": 1,
+        "rejection_reasons": {
+          "underfunded account: b": 3,
+          "missing or mismatched approval": 8,
+          "underfunded account: c": 4
+        },
+        "path_audits": 3300,
+        "peak_sum_positive_net_deposits": 726,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          2,
+          4
+        ]
+      },
+      {
+        "seed": 189,
+        "accepted": 65,
+        "rejected": 12,
+        "skipped_resolved_cover": 23,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 6,
+          "underfunded account: b": 2,
+          "underfunded account: a": 1
+        },
+        "path_audits": 1622,
+        "peak_sum_positive_net_deposits": 525,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 190,
+        "accepted": 81,
+        "rejected": 10,
+        "skipped_resolved_cover": 9,
+        "rejection_reasons": {
+          "missing or mismatched approval": 2,
+          "underfunded account: b": 5,
+          "underfunded account: c": 3
+        },
+        "path_audits": 2212,
+        "peak_sum_positive_net_deposits": 770,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 191,
+        "accepted": 68,
+        "rejected": 11,
+        "skipped_resolved_cover": 21,
+        "rejection_reasons": {
+          "missing or mismatched approval": 7,
+          "underfunded account: c": 4
+        },
+        "path_audits": 1993,
+        "peak_sum_positive_net_deposits": 545,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 192,
+        "accepted": 68,
+        "rejected": 15,
+        "skipped_resolved_cover": 17,
+        "rejection_reasons": {
+          "underfunded account: c": 1,
+          "missing or mismatched approval": 6,
+          "underfunded account: a": 3,
+          "underfunded account: b": 5
+        },
+        "path_audits": 1907,
+        "peak_sum_positive_net_deposits": 660,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 193,
+        "accepted": 79,
+        "rejected": 20,
+        "skipped_resolved_cover": 1,
+        "rejection_reasons": {
+          "underfunded account: c": 1,
+          "missing or mismatched approval": 13,
+          "underfunded account: a": 5,
+          "underfunded account: b": 1
+        },
+        "path_audits": 3160,
+        "peak_sum_positive_net_deposits": 429,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 194,
+        "accepted": 74,
+        "rejected": 10,
+        "skipped_resolved_cover": 16,
+        "rejection_reasons": {
+          "missing or mismatched approval": 4,
+          "underfunded account: b": 3,
+          "underfunded account: a": 3
+        },
+        "path_audits": 2015,
+        "peak_sum_positive_net_deposits": 594,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          0,
+          4
+        ]
+      },
+      {
+        "seed": 195,
+        "accepted": 68,
+        "rejected": 9,
+        "skipped_resolved_cover": 23,
+        "rejection_reasons": {
+          "underfunded account: c": 3,
+          "missing or mismatched approval": 3,
+          "underfunded account: a": 2,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1641,
+        "peak_sum_positive_net_deposits": 404,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "seed": 196,
+        "accepted": 73,
+        "rejected": 11,
+        "skipped_resolved_cover": 16,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 7,
+          "underfunded account: c": 1,
+          "underfunded account: b": 1
+        },
+        "path_audits": 1822,
+        "peak_sum_positive_net_deposits": 542,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "seed": 197,
+        "accepted": 74,
+        "rejected": 13,
+        "skipped_resolved_cover": 13,
+        "rejection_reasons": {
+          "underfunded account: a": 2,
+          "missing or mismatched approval": 10,
+          "underfunded account: b": 1
+        },
+        "path_audits": 2780,
+        "peak_sum_positive_net_deposits": 534,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "seed": 198,
+        "accepted": 81,
+        "rejected": 19,
+        "skipped_resolved_cover": 0,
+        "rejection_reasons": {
+          "underfunded account: c": 4,
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 10,
+          "underfunded account: b": 2
+        },
+        "path_audits": 3541,
+        "peak_sum_positive_net_deposits": 489,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "seed": 199,
+        "accepted": 75,
+        "rejected": 10,
+        "skipped_resolved_cover": 15,
+        "rejection_reasons": {
+          "underfunded account: a": 3,
+          "missing or mismatched approval": 5,
+          "underfunded account: b": 2
+        },
+        "path_audits": 2287,
+        "peak_sum_positive_net_deposits": 629,
+        "final_escrow": 0,
+        "terminal_path": [
+          0,
+          1,
+          3,
+          3
+        ]
+      }
+    ]
+  },
+  "benchmarks": [
+    {
+      "kind": "free",
+      "values": 10,
+      "checkpoints": 4,
+      "states": 45,
+      "edges": 344,
+      "normal_path_upper_bound": "10000",
+      "graph_build_and_cover_ms": 0.4098,
+      "structural_classification_ms": 0.0225,
+      "median_ms": 0.0457,
+      "work": 98,
+      "generic_median_ms": 0.354,
+      "generic_work": 398,
+      "speedup": 7.74,
+      "minimum": 9100
+    },
+    {
+      "kind": "free",
+      "values": 40,
+      "checkpoints": 6,
+      "states": 247,
+      "edges": 8246,
+      "normal_path_upper_bound": "4096000000",
+      "graph_build_and_cover_ms": 8.4111,
+      "structural_classification_ms": 0.283,
+      "median_ms": 0.1792,
+      "work": 532,
+      "generic_median_ms": 7.3188,
+      "generic_work": 8532,
+      "speedup": 40.85,
+      "minimum": 6100
+    },
+    {
+      "kind": "free",
+      "values": 100,
+      "checkpoints": 8,
+      "states": 809,
+      "edges": 70808,
+      "normal_path_upper_bound": "10000000000000000",
+      "graph_build_and_cover_ms": 118.6747,
+      "structural_classification_ms": 2.6687,
+      "median_ms": 0.6525,
+      "work": 1716,
+      "generic_median_ms": 66.5947,
+      "generic_work": 71716,
+      "speedup": 102.07,
+      "minimum": 100
+    },
+    {
+      "kind": "monotone",
+      "values": 10,
+      "checkpoints": 4,
+      "states": 45,
+      "edges": 209,
+      "normal_path_upper_bound": "10000",
+      "graph_build_and_cover_ms": 1.0805,
+      "structural_classification_ms": 0.0185,
+      "median_ms": 0.0387,
+      "work": 98,
+      "generic_median_ms": 0.2017,
+      "generic_work": 263,
+      "speedup": 5.22,
+      "minimum": 9100
+    },
+    {
+      "kind": "monotone",
+      "values": 40,
+      "checkpoints": 6,
+      "states": 247,
+      "edges": 4346,
+      "normal_path_upper_bound": "4096000000",
+      "graph_build_and_cover_ms": 4.6613,
+      "structural_classification_ms": 0.1733,
+      "median_ms": 0.1757,
+      "work": 532,
+      "generic_median_ms": 3.9334,
+      "generic_work": 4632,
+      "speedup": 22.39,
+      "minimum": 6100
+    },
+    {
+      "kind": "monotone",
+      "values": 100,
+      "checkpoints": 8,
+      "states": 809,
+      "edges": 36158,
+      "normal_path_upper_bound": "10000000000000000",
+      "graph_build_and_cover_ms": 39.3368,
+      "structural_classification_ms": 1.2348,
+      "median_ms": 0.6118,
+      "work": 1716,
+      "generic_median_ms": 32.5887,
+      "generic_work": 37066,
+      "speedup": 53.27,
+      "minimum": 100
+    }
+  ],
+  "runtime_seconds": 11.709
+}

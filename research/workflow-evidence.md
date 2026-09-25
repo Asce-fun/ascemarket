@@ -1,6 +1,6 @@
 # Quote workflow: evidence and alternatives
 
-Research date: **17 September 2026**. Companion specification: [quote-workflow.md](../quote-workflow.md).
+Research date: **17 September 2026**. Companion specification: quote-workflow.md (removed v1 document).
 
 ## What was actually investigated
 
