@@ -1,0 +1,118 @@
+{
+  "scope": "Local EVM research, synthetic quotes, fixed test-only execution adapters; no production exchange or demand validation.",
+  "date": "2026-09-30",
+  "compiler": "0.5.17+commit.d19bba13.Emscripten.clang",
+  "ctf_package": "@gnosis.pm/conditional-tokens-contracts@1.0.3",
+  "ganache_version": "7.9.2",
+  "ethers_version": "6.16.0",
+  "source_sha256": {
+    "upstream_ctf": "89f8ca9fd646044e22036c96fe04f7c5e78b7c4a628aa0bbf2abccacfcc84a08",
+    "helpers": "6c952661e7ba7907764ae5045b25ca508d7d93ddad3ca65219a270d088eb2618",
+    "runner": "6acc0f7da6c07699087539f85daf573b93840baf8c4e4faf6d3e406ced1a99ee"
+  },
+  "assertion_count": 160,
+  "expected_reverted_transactions": 7,
+  "terminal_redemption_scenarios": 26,
+  "orderbook": {
+    "prefunded_maker_peak": 100,
+    "order_placement_additional_collateral": 0,
+    "after_sales_maker_net_contribution": 30,
+    "partial_order_fills": 2,
+    "stale_inventory_fill_reverted_without_payment": true,
+    "after_half_buyback_and_merge": {
+      "ctf_escrow": 50,
+      "maker_wallet": 85,
+      "maker_net_contribution": 15
+    }
+  },
+  "funding": {
+    "common_condition": {
+      "atomic_maker_peak": 30,
+      "total_ctf_backing": 100,
+      "terminal_buyer_A_payouts": [
+        100,
+        0,
+        0,
+        0
+      ],
+      "sequential_maker_peak": 70,
+      "sequential_final_net_contribution": 30
+    },
+    "separate_binary_conditions": {
+      "total_ctf_backing": 200,
+      "net_contribution_after_70_premiums": 130
+    },
+    "overlapping_partition_rejected": true
+  },
+  "exceptions": {
+    "per_cover_normal_cap": 100,
+    "per_cover_cancellation_payout": 60,
+    "common_condition_backing": 120,
+    "maker_net_contribution_after_70_premiums": 50,
+    "buyer_A_payouts": [
+      100,
+      0,
+      0,
+      60
+    ],
+    "customer_representation": "Two CTF positions per cover; a single custom token would require a custody wrapper."
+  },
+  "marketplace": {
+    "direct_interval_orderbook_present": false,
+    "states": "0..7 plus cancellation",
+    "buy": {
+      "cover": "[2,5)",
+      "source_ask_T2": 40,
+      "source_bid_T5": 15,
+      "buyer_price": 25,
+      "terminal_payouts": [
+        0,
+        0,
+        100,
+        100,
+        100,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "change": {
+      "cover": "[1,5)",
+      "source_ask_T1": 50,
+      "source_bid_T2": 38,
+      "buyer_increment": 12,
+      "terminal_payouts": [
+        0,
+        100,
+        100,
+        100,
+        100,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "close": {
+      "source_bid_T1": 48,
+      "source_ask_T5": 16,
+      "buyer_proceeds": 32
+    },
+    "final_wallets": {
+      "1": 102,
+      "2": 32,
+      "3": 16,
+      "4": 102
+    },
+    "final_ctf_escrow": 0,
+    "buyer_roundtrip_loss_without_fees": 5,
+    "source_maker_roundtrip_gross_profits": [
+      2,
+      1,
+      2
+    ],
+    "underfunded_source_bid_reverted_all_legs": true,
+    "expiry_enforced": true
+  }
+}

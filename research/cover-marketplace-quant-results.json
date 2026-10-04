@@ -1,0 +1,88 @@
+{
+  "date": "2026-09-30",
+  "scope": "Exact synthetic accounting and pricing-identity research; no empirical liquidity or demand findings.",
+  "source_sha256": "7b2e402c32fa5ddde61b2ebfdb8c0d26ea8f1f567b637277121ab101267afba2",
+  "model_sha256": {
+    "schema.py": "c0a4a069ff04f5b2d97e0fdba60ffb36c71f075278ab97b3acad43fe19df8096",
+    "verifier.py": "0cd23b15ad0452df1ded56ca49346639a18fefbc4a3ea703533ef7e59b469fb9",
+    "oracle.py": "64e4beb059738e6c23dd9521177b5c7b57b1cb77070c0a1b402de70e741d17a8",
+    "ledger.py": "2a537282cc95738136df78edbf395cbd69830e8868649024a3442ad92d5ad3cd",
+    "examples.py": "8cb699342231961324481d73e638e30029d6fad8b82084a97f3d463ca46deea1"
+  },
+  "basis": {
+    "normal_states": 8,
+    "exception_states": 1,
+    "basis_covers": 8,
+    "exact_interval_replications": 36,
+    "exact_profile_replications": 6561,
+    "all_exceptions_checked": true,
+    "boundary": "Exact finite settlement domain; all covers cancel at zero. Replication uses signed internal holdings. This is not an implemented external-token conversion router."
+  },
+  "maker": {
+    "unit": "one tenth of illustrative currency unit",
+    "per_cover_cap": 1000,
+    "per_cover_premium": 385,
+    "atomic_writer_contribution": 230,
+    "separate_writers_total_contribution": 1230,
+    "sequential_peak_writer_contribution": 615,
+    "sequential_release_after_second_fill": 385,
+    "remaining_writer_contribution": 230,
+    "contribution_with_600_exception_payout_per_cover": 430,
+    "synthetic_expected_gross_profit": "20",
+    "loss_probability_under_uniform_normal_model": "3/4",
+    "loss_when_a_tail_wins": 230,
+    "profit_when_neither_wins": 770,
+    "boundary": "Uniform probabilities on eight normal outcomes, exception probability zero only for this illustrative expected-value calculation. Funding includes the exception. Premiums are assumptions, not observed quotes; costs and estimation error are excluded. CTF can match this mutually exclusive funding construction."
+  },
+  "joint_prices": {
+    "rows": [
+      {
+        "model": "perfectly_opposed",
+        "first_checkpoint_digital_price": "50",
+        "second_checkpoint_digital_price": "50",
+        "both_checkpoints_digital_price": "0"
+      },
+      {
+        "model": "independent",
+        "first_checkpoint_digital_price": "50",
+        "second_checkpoint_digital_price": "50",
+        "both_checkpoints_digital_price": "25"
+      },
+      {
+        "model": "perfectly_aligned",
+        "first_checkpoint_digital_price": "50",
+        "second_checkpoint_digital_price": "50",
+        "both_checkpoints_digital_price": "50"
+      }
+    ],
+    "boundary": "Hypothetical undiscounted fair values. Equal marginal prices do not identify joint/path-dependent prices. These probability models do not alter permitted funding histories."
+  },
+  "coherent_prices": {
+    "states": [
+      "A",
+      "B",
+      "neither",
+      "exception"
+    ],
+    "equal_payouts": true,
+    "synthetic_asks": {
+      "A": 35,
+      "B": 35,
+      "C": 80
+    },
+    "replication_ask": 70,
+    "direct_ask": 80,
+    "synthetic_C_bid": 75,
+    "gross_arbitrage_if_atomic_conversion_and_all_quotes_executable": 5,
+    "boundary": "An exact funding/equivalence demonstration, not an implemented conversion facility or observed arbitrage. Fees, execution, permissions and quote capacity can remove the opportunity."
+  },
+  "shared_quotes": {
+    "first_cover_quote_from_empty_inventory": 49.342234,
+    "opposite_tail_quote_from_empty_inventory": 49.342234,
+    "second_cover_quote_after_first_sale": 32.891996,
+    "atomic_basket_quote": 82.23423,
+    "sequential_quote_total": 82.23423,
+    "customer_holdings_used_in_pricing": false,
+    "boundary": "Illustrative finite-state entropic cost with assumed probabilities and risk parameter, no fees. Shows common maker-inventory pricing and exact telescoping, not profitable liquidity, a production AMM, an onchain numeric implementation, or a guarantee every quote can be funded. Integer funding checks remain mandatory."
+  }
+}

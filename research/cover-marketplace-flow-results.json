@@ -1,0 +1,941 @@
+{
+  "date": "2026-09-30",
+  "scope": "Synthetic executable routing over existing Python kernel; not a production matching engine or empirical demand/maker-profitability study.",
+  "source_sha256": "26a0939173505dcdba19c574d48924187f3495b951533d6d2d645ca3d447b6e0",
+  "model_sha256": {
+    "schema.py": "c0a4a069ff04f5b2d97e0fdba60ffb36c71f075278ab97b3acad43fe19df8096",
+    "verifier.py": "0cd23b15ad0452df1ded56ca49346639a18fefbc4a3ea703533ef7e59b469fb9",
+    "oracle.py": "64e4beb059738e6c23dd9521177b5c7b57b1cb77070c0a1b402de70e741d17a8",
+    "ledger.py": "2a537282cc95738136df78edbf395cbd69830e8868649024a3442ad92d5ad3cd",
+    "examples.py": "8cb699342231961324481d73e638e30029d6fad8b82084a97f3d463ca46deea1"
+  },
+  "no_direct_created_cover_quotes": true,
+  "same_template_fungible_across_creators": true,
+  "cover_admission_without_issuance_or_new_funding": true,
+  "stages": [
+    {
+      "action": "buy_new_cover_user_1",
+      "price": 25,
+      "fee": 1,
+      "deposit": 26,
+      "withdrawal": 0,
+      "legs": [
+        "A-ask",
+        "B-bid"
+      ],
+      "escrow": 301
+    },
+    {
+      "action": "buy_same_cover_user_2",
+      "price": 25,
+      "fee": 1,
+      "deposit": 26,
+      "withdrawal": 0,
+      "legs": [
+        "A-ask",
+        "B-bid"
+      ],
+      "escrow": 327
+    },
+    {
+      "action": "widen_user_1_cover",
+      "price": 12,
+      "fee": 1,
+      "deposit": 13,
+      "withdrawal": 0,
+      "legs": [
+        "T-ask",
+        "A-bid"
+      ],
+      "escrow": 340
+    },
+    {
+      "action": "close_user_1_cover",
+      "price": -32,
+      "fee": 1,
+      "deposit": 0,
+      "withdrawal": 31,
+      "legs": [
+        "T-bid",
+        "B-ask"
+      ],
+      "escrow": 309
+    }
+  ],
+  "quote_fills": {
+    "A-ask": 2,
+    "B-bid": 2,
+    "T-ask": 1,
+    "A-bid": 1,
+    "T-bid": 1,
+    "B-ask": 1
+  },
+  "rejected_without_mutation": {
+    "customer_budget": "customer price limit",
+    "fractional_lot": "quantity must be an integer",
+    "exception_mismatch": "route payout mismatch, including exceptional outcomes",
+    "cancelled_source": "source liquidity unavailable",
+    "stale_epoch": "stale or expired source quote",
+    "expired_source": "stale or expired source quote",
+    "underfunded_source": "underfunded account: maker-T5",
+    "non_atomic_missing_offset": "underfunded account: router",
+    "insufficient_quote_capacity": "source liquidity unavailable",
+    "close_without_position": "customer does not own cover to change/close"
+  },
+  "path_account_checks": 315,
+  "terminal_scenarios": [
+    {
+      "outcome": 0,
+      "payouts": {
+        "maker-T2": 222,
+        "maker-T5": 31,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 0,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": -26,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    },
+    {
+      "outcome": 1,
+      "payouts": {
+        "maker-T2": 222,
+        "maker-T5": 31,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 0,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": -26,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    },
+    {
+      "outcome": 2,
+      "payouts": {
+        "maker-T2": 122,
+        "maker-T5": 31,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 100,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": 74,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    },
+    {
+      "outcome": 3,
+      "payouts": {
+        "maker-T2": 122,
+        "maker-T5": 31,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 100,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": 74,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    },
+    {
+      "outcome": 4,
+      "payouts": {
+        "maker-T2": 122,
+        "maker-T5": 31,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 100,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": 74,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    },
+    {
+      "outcome": 5,
+      "payouts": {
+        "maker-T2": 122,
+        "maker-T5": 131,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 0,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": -26,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    },
+    {
+      "outcome": 6,
+      "payouts": {
+        "maker-T2": 122,
+        "maker-T5": 131,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 0,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": -26,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    },
+    {
+      "outcome": 7,
+      "payouts": {
+        "maker-T2": 122,
+        "maker-T5": 131,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 0,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": -26,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    },
+    {
+      "outcome": "cancellation",
+      "payouts": {
+        "maker-T2": 222,
+        "maker-T5": 31,
+        "maker-T1": 52,
+        "user-1": 0,
+        "user-2": 0,
+        "router": 0,
+        "treasury": 4
+      },
+      "user_2_net_pnl": -26,
+      "user_1_roundtrip_pnl": -8,
+      "final_escrow": 0
+    }
+  ],
+  "capital_comparison": {
+    "kernel_atomic_maker_peak": 30,
+    "kernel_sequential_maker_peak": 70,
+    "kernel_sequential_final_net_contribution": 30,
+    "common_condition_CTF_atomic_maker_peak": 30,
+    "common_condition_CTF_sequential_maker_peak": 70,
+    "note": "CTF counterpart runs independently in run-evidence.cjs; matching claims have zero exceptional payouts."
+  },
+  "maker_economics": {
+    "probabilities_assumed_not_observed": [
+      0.5,
+      0.1,
+      0.08,
+      0.08,
+      0.075,
+      0.05,
+      0.05,
+      0.055,
+      0.01
+    ],
+    "fair_values_under_assumed_model": {
+      "T1": 49.0,
+      "T2": 39.0,
+      "T5": 15.5,
+      "C": 23.5
+    },
+    "makers_expected_gross_pnl": {
+      "maker-T2": 3.0,
+      "maker-T5": 1.5,
+      "maker-T1": 2.0
+    },
+    "makers_total_expected_gross_pnl": 6.5,
+    "makers_combined_worst_terminal_pnl": -70,
+    "break_even_remaining_interval_probability_before_costs": 0.3,
+    "stress_cases": [
+      {
+        "remaining_interval_probability": 0.2,
+        "total_assumed_maker_cost": 0,
+        "makers_expected_pnl": 10.0
+      },
+      {
+        "remaining_interval_probability": 0.2,
+        "total_assumed_maker_cost": 2,
+        "makers_expected_pnl": 8.0
+      },
+      {
+        "remaining_interval_probability": 0.2,
+        "total_assumed_maker_cost": 7,
+        "makers_expected_pnl": 3.0
+      },
+      {
+        "remaining_interval_probability": 0.235,
+        "total_assumed_maker_cost": 0,
+        "makers_expected_pnl": 6.5
+      },
+      {
+        "remaining_interval_probability": 0.235,
+        "total_assumed_maker_cost": 2,
+        "makers_expected_pnl": 4.5
+      },
+      {
+        "remaining_interval_probability": 0.235,
+        "total_assumed_maker_cost": 7,
+        "makers_expected_pnl": -0.5
+      },
+      {
+        "remaining_interval_probability": 0.3,
+        "total_assumed_maker_cost": 0,
+        "makers_expected_pnl": 0.0
+      },
+      {
+        "remaining_interval_probability": 0.3,
+        "total_assumed_maker_cost": 2,
+        "makers_expected_pnl": -2.0
+      },
+      {
+        "remaining_interval_probability": 0.3,
+        "total_assumed_maker_cost": 7,
+        "makers_expected_pnl": -7.0
+      },
+      {
+        "remaining_interval_probability": 0.375,
+        "total_assumed_maker_cost": 0,
+        "makers_expected_pnl": -7.5
+      },
+      {
+        "remaining_interval_probability": 0.375,
+        "total_assumed_maker_cost": 2,
+        "makers_expected_pnl": -9.5
+      },
+      {
+        "remaining_interval_probability": 0.375,
+        "total_assumed_maker_cost": 7,
+        "makers_expected_pnl": -14.5
+      },
+      {
+        "remaining_interval_probability": 0.45,
+        "total_assumed_maker_cost": 0,
+        "makers_expected_pnl": -15.0
+      },
+      {
+        "remaining_interval_probability": 0.45,
+        "total_assumed_maker_cost": 2,
+        "makers_expected_pnl": -17.0
+      },
+      {
+        "remaining_interval_probability": 0.45,
+        "total_assumed_maker_cost": 7,
+        "makers_expected_pnl": -22.0
+      }
+    ],
+    "interpretation": "Mechanically successful routing can lose money for makers. Under uniform normal outcomes it loses 7.5 before costs; under the quote-compatible assumed distribution it earns 6.5 before costs. Neither distribution is measured. Gas, capital carry, oracle delay, adverse selection and hedging remain unpriced here."
+  },
+  "quote_search": {
+    "cheaper_related_route_selected": {
+      "price": 25,
+      "fee": 1,
+      "deposit": 26,
+      "withdrawal": 0,
+      "legs": [
+        "A-ask",
+        "B-bid"
+      ],
+      "escrow": 368,
+      "eligible_routes": 2
+    },
+    "direct_fallback_when_source_cancelled": {
+      "price": 33,
+      "fee": 1,
+      "deposit": 34,
+      "withdrawal": 0,
+      "legs": [
+        "C-direct-ask"
+      ],
+      "escrow": 376,
+      "eligible_routes": 1
+    },
+    "executed_intervals": [
+      {
+        "interval": [
+          0,
+          1
+        ],
+        "no_direct_orders": true,
+        "price": 14,
+        "fee": 1,
+        "deposit": 15,
+        "withdrawal": 0,
+        "legs": [
+          "T0-sell",
+          "T1-buy"
+        ],
+        "escrow": 290
+      },
+      {
+        "interval": [
+          0,
+          2
+        ],
+        "no_direct_orders": true,
+        "price": 24,
+        "fee": 1,
+        "deposit": 25,
+        "withdrawal": 0,
+        "legs": [
+          "T0-sell",
+          "T2-buy"
+        ],
+        "escrow": 300
+      },
+      {
+        "interval": [
+          0,
+          3
+        ],
+        "no_direct_orders": true,
+        "price": 34,
+        "fee": 1,
+        "deposit": 35,
+        "withdrawal": 0,
+        "legs": [
+          "T0-sell",
+          "T3-buy"
+        ],
+        "escrow": 310
+      },
+      {
+        "interval": [
+          0,
+          4
+        ],
+        "no_direct_orders": true,
+        "price": 44,
+        "fee": 1,
+        "deposit": 45,
+        "withdrawal": 0,
+        "legs": [
+          "T0-sell",
+          "T4-buy"
+        ],
+        "escrow": 320
+      },
+      {
+        "interval": [
+          0,
+          5
+        ],
+        "no_direct_orders": true,
+        "price": 54,
+        "fee": 1,
+        "deposit": 55,
+        "withdrawal": 0,
+        "legs": [
+          "T0-sell",
+          "T5-buy"
+        ],
+        "escrow": 330
+      },
+      {
+        "interval": [
+          0,
+          6
+        ],
+        "no_direct_orders": true,
+        "price": 64,
+        "fee": 1,
+        "deposit": 65,
+        "withdrawal": 0,
+        "legs": [
+          "T0-sell",
+          "T6-buy"
+        ],
+        "escrow": 340
+      },
+      {
+        "interval": [
+          0,
+          7
+        ],
+        "no_direct_orders": true,
+        "price": 74,
+        "fee": 1,
+        "deposit": 75,
+        "withdrawal": 0,
+        "legs": [
+          "T0-sell",
+          "T7-buy"
+        ],
+        "escrow": 350
+      },
+      {
+        "interval": [
+          0,
+          8
+        ],
+        "no_direct_orders": false,
+        "price": 82,
+        "fee": 1,
+        "deposit": 83,
+        "withdrawal": 0,
+        "legs": [
+          "T0-sell"
+        ],
+        "escrow": 358
+      },
+      {
+        "interval": [
+          1,
+          2
+        ],
+        "no_direct_orders": true,
+        "price": 14,
+        "fee": 1,
+        "deposit": 15,
+        "withdrawal": 0,
+        "legs": [
+          "T1-sell",
+          "T2-buy"
+        ],
+        "escrow": 290
+      },
+      {
+        "interval": [
+          1,
+          3
+        ],
+        "no_direct_orders": true,
+        "price": 24,
+        "fee": 1,
+        "deposit": 25,
+        "withdrawal": 0,
+        "legs": [
+          "T1-sell",
+          "T3-buy"
+        ],
+        "escrow": 300
+      },
+      {
+        "interval": [
+          1,
+          4
+        ],
+        "no_direct_orders": true,
+        "price": 34,
+        "fee": 1,
+        "deposit": 35,
+        "withdrawal": 0,
+        "legs": [
+          "T1-sell",
+          "T4-buy"
+        ],
+        "escrow": 310
+      },
+      {
+        "interval": [
+          1,
+          5
+        ],
+        "no_direct_orders": true,
+        "price": 44,
+        "fee": 1,
+        "deposit": 45,
+        "withdrawal": 0,
+        "legs": [
+          "T1-sell",
+          "T5-buy"
+        ],
+        "escrow": 320
+      },
+      {
+        "interval": [
+          1,
+          6
+        ],
+        "no_direct_orders": true,
+        "price": 54,
+        "fee": 1,
+        "deposit": 55,
+        "withdrawal": 0,
+        "legs": [
+          "T1-sell",
+          "T6-buy"
+        ],
+        "escrow": 330
+      },
+      {
+        "interval": [
+          1,
+          7
+        ],
+        "no_direct_orders": true,
+        "price": 64,
+        "fee": 1,
+        "deposit": 65,
+        "withdrawal": 0,
+        "legs": [
+          "T1-sell",
+          "T7-buy"
+        ],
+        "escrow": 340
+      },
+      {
+        "interval": [
+          1,
+          8
+        ],
+        "no_direct_orders": false,
+        "price": 72,
+        "fee": 1,
+        "deposit": 73,
+        "withdrawal": 0,
+        "legs": [
+          "T1-sell"
+        ],
+        "escrow": 348
+      },
+      {
+        "interval": [
+          2,
+          3
+        ],
+        "no_direct_orders": true,
+        "price": 14,
+        "fee": 1,
+        "deposit": 15,
+        "withdrawal": 0,
+        "legs": [
+          "T2-sell",
+          "T3-buy"
+        ],
+        "escrow": 290
+      },
+      {
+        "interval": [
+          2,
+          4
+        ],
+        "no_direct_orders": true,
+        "price": 24,
+        "fee": 1,
+        "deposit": 25,
+        "withdrawal": 0,
+        "legs": [
+          "T2-sell",
+          "T4-buy"
+        ],
+        "escrow": 300
+      },
+      {
+        "interval": [
+          2,
+          5
+        ],
+        "no_direct_orders": true,
+        "price": 34,
+        "fee": 1,
+        "deposit": 35,
+        "withdrawal": 0,
+        "legs": [
+          "T2-sell",
+          "T5-buy"
+        ],
+        "escrow": 310
+      },
+      {
+        "interval": [
+          2,
+          6
+        ],
+        "no_direct_orders": true,
+        "price": 44,
+        "fee": 1,
+        "deposit": 45,
+        "withdrawal": 0,
+        "legs": [
+          "T2-sell",
+          "T6-buy"
+        ],
+        "escrow": 320
+      },
+      {
+        "interval": [
+          2,
+          7
+        ],
+        "no_direct_orders": true,
+        "price": 54,
+        "fee": 1,
+        "deposit": 55,
+        "withdrawal": 0,
+        "legs": [
+          "T2-sell",
+          "T7-buy"
+        ],
+        "escrow": 330
+      },
+      {
+        "interval": [
+          2,
+          8
+        ],
+        "no_direct_orders": false,
+        "price": 62,
+        "fee": 1,
+        "deposit": 63,
+        "withdrawal": 0,
+        "legs": [
+          "T2-sell"
+        ],
+        "escrow": 338
+      },
+      {
+        "interval": [
+          3,
+          4
+        ],
+        "no_direct_orders": true,
+        "price": 14,
+        "fee": 1,
+        "deposit": 15,
+        "withdrawal": 0,
+        "legs": [
+          "T3-sell",
+          "T4-buy"
+        ],
+        "escrow": 290
+      },
+      {
+        "interval": [
+          3,
+          5
+        ],
+        "no_direct_orders": true,
+        "price": 24,
+        "fee": 1,
+        "deposit": 25,
+        "withdrawal": 0,
+        "legs": [
+          "T3-sell",
+          "T5-buy"
+        ],
+        "escrow": 300
+      },
+      {
+        "interval": [
+          3,
+          6
+        ],
+        "no_direct_orders": true,
+        "price": 34,
+        "fee": 1,
+        "deposit": 35,
+        "withdrawal": 0,
+        "legs": [
+          "T3-sell",
+          "T6-buy"
+        ],
+        "escrow": 310
+      },
+      {
+        "interval": [
+          3,
+          7
+        ],
+        "no_direct_orders": true,
+        "price": 44,
+        "fee": 1,
+        "deposit": 45,
+        "withdrawal": 0,
+        "legs": [
+          "T3-sell",
+          "T7-buy"
+        ],
+        "escrow": 320
+      },
+      {
+        "interval": [
+          3,
+          8
+        ],
+        "no_direct_orders": false,
+        "price": 52,
+        "fee": 1,
+        "deposit": 53,
+        "withdrawal": 0,
+        "legs": [
+          "T3-sell"
+        ],
+        "escrow": 328
+      },
+      {
+        "interval": [
+          4,
+          5
+        ],
+        "no_direct_orders": true,
+        "price": 14,
+        "fee": 1,
+        "deposit": 15,
+        "withdrawal": 0,
+        "legs": [
+          "T4-sell",
+          "T5-buy"
+        ],
+        "escrow": 290
+      },
+      {
+        "interval": [
+          4,
+          6
+        ],
+        "no_direct_orders": true,
+        "price": 24,
+        "fee": 1,
+        "deposit": 25,
+        "withdrawal": 0,
+        "legs": [
+          "T4-sell",
+          "T6-buy"
+        ],
+        "escrow": 300
+      },
+      {
+        "interval": [
+          4,
+          7
+        ],
+        "no_direct_orders": true,
+        "price": 34,
+        "fee": 1,
+        "deposit": 35,
+        "withdrawal": 0,
+        "legs": [
+          "T4-sell",
+          "T7-buy"
+        ],
+        "escrow": 310
+      },
+      {
+        "interval": [
+          4,
+          8
+        ],
+        "no_direct_orders": false,
+        "price": 42,
+        "fee": 1,
+        "deposit": 43,
+        "withdrawal": 0,
+        "legs": [
+          "T4-sell"
+        ],
+        "escrow": 318
+      },
+      {
+        "interval": [
+          5,
+          6
+        ],
+        "no_direct_orders": true,
+        "price": 14,
+        "fee": 1,
+        "deposit": 15,
+        "withdrawal": 0,
+        "legs": [
+          "T5-sell",
+          "T6-buy"
+        ],
+        "escrow": 290
+      },
+      {
+        "interval": [
+          5,
+          7
+        ],
+        "no_direct_orders": true,
+        "price": 24,
+        "fee": 1,
+        "deposit": 25,
+        "withdrawal": 0,
+        "legs": [
+          "T5-sell",
+          "T7-buy"
+        ],
+        "escrow": 300
+      },
+      {
+        "interval": [
+          5,
+          8
+        ],
+        "no_direct_orders": false,
+        "price": 32,
+        "fee": 1,
+        "deposit": 33,
+        "withdrawal": 0,
+        "legs": [
+          "T5-sell"
+        ],
+        "escrow": 308
+      },
+      {
+        "interval": [
+          6,
+          7
+        ],
+        "no_direct_orders": true,
+        "price": 14,
+        "fee": 1,
+        "deposit": 15,
+        "withdrawal": 0,
+        "legs": [
+          "T6-sell",
+          "T7-buy"
+        ],
+        "escrow": 290
+      },
+      {
+        "interval": [
+          6,
+          8
+        ],
+        "no_direct_orders": false,
+        "price": 22,
+        "fee": 1,
+        "deposit": 23,
+        "withdrawal": 0,
+        "legs": [
+          "T6-sell"
+        ],
+        "escrow": 298
+      },
+      {
+        "interval": [
+          7,
+          8
+        ],
+        "no_direct_orders": false,
+        "price": 12,
+        "fee": 1,
+        "deposit": 13,
+        "withdrawal": 0,
+        "legs": [
+          "T7-sell"
+        ],
+        "escrow": 288
+      }
+    ],
+    "independent_funded_executions": 36,
+    "new_intervals_without_direct_orders": 28,
+    "boundary": "Each interval test starts from the same fresh maker inventory; this does not claim depth for all 36 simultaneous trades. Search considers at most two source legs, with integer lots and synthetic quotes."
+  },
+  "limitations": [
+    "Template adapter holds simulated admin privileges; current kernel is not permissionless cover admission.",
+    "Quote approvals are harness assertions, not signatures; no persistent orderbook or external claim conversion.",
+    "Exact replication requires compatible source, settlement domain, finality and exceptional payouts.",
+    "Prices, maker balances and source availability are synthetic; no claim of commercially viable liquidity.",
+    "This prototype is restricted to finite intervals; arbitrary path/scalar covers require separate treatment."
+  ]
+}

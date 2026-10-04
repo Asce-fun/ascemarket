@@ -1,0 +1,405 @@
+{
+  "scope": "Exact integer single-event model; synthetic premiums; no deployed custody.",
+  "date": "2026-09-30",
+  "collateral_base_units_per_usdc": 1000000,
+  "A": {
+    "states": [
+      "x<80000",
+      "80000<=x<100000",
+      "100000<=x<120000",
+      "120000<=x<150000",
+      "x>=150000",
+      "INVALID"
+    ],
+    "covers_usdc": [
+      [
+        10000,
+        6000,
+        2000,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2000,
+        7000,
+        10000,
+        0
+      ],
+      [
+        1000,
+        5000,
+        6000,
+        4000,
+        0,
+        0
+      ]
+    ],
+    "aggregate_usdc": [
+      11000,
+      11000,
+      10000,
+      11000,
+      10000,
+      0
+    ],
+    "gross_cap_usdc": 26000,
+    "state_aware_backing_usdc": 11000,
+    "capital_saved_usdc": 15000,
+    "premiums_usdc": [
+      2300,
+      2600,
+      2100
+    ],
+    "atomic_maker_contribution_usdc": 4000,
+    "sequential_maker_peak_usdc": 7700,
+    "ctf_atomic_claim_allocation": {
+      "backing": 11000,
+      "buyer_claims": [
+        [
+          10000,
+          6000,
+          2000,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2000,
+          7000,
+          10000,
+          0
+        ],
+        [
+          1000,
+          5000,
+          6000,
+          4000,
+          0,
+          0
+        ]
+      ],
+      "aggregate_liability": [
+        11000,
+        11000,
+        10000,
+        11000,
+        10000,
+        0
+      ],
+      "maker_residual": [
+        0,
+        0,
+        1000,
+        0,
+        1000,
+        11000
+      ]
+    },
+    "settlements": [
+      {
+        "state": "x<80000",
+        "payout_usdc": {
+          "maker": 0,
+          "buyer0": 10000,
+          "buyer1": 0,
+          "buyer2": 1000,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "80000<=x<100000",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer2": 5000,
+          "buyer1": 0,
+          "buyer0": 6000,
+          "maker": 0
+        }
+      },
+      {
+        "state": "100000<=x<120000",
+        "payout_usdc": {
+          "maker": 1000,
+          "buyer0": 2000,
+          "buyer1": 2000,
+          "buyer2": 6000,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "120000<=x<150000",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer2": 4000,
+          "buyer1": 7000,
+          "buyer0": 0,
+          "maker": 0
+        }
+      },
+      {
+        "state": "x>=150000",
+        "payout_usdc": {
+          "maker": 1000,
+          "buyer0": 0,
+          "buyer1": 10000,
+          "buyer2": 0,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "INVALID",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer2": 0,
+          "buyer1": 0,
+          "buyer0": 0,
+          "maker": 11000
+        }
+      }
+    ]
+  },
+  "B": {
+    "states": [
+      "x<80000",
+      "80000<=x<100000",
+      "100000<=x<120000",
+      "x=120000",
+      "120000<x<150000",
+      "x>=150000",
+      "INVALID"
+    ],
+    "covers_usdc": [
+      [
+        4000,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        6000,
+        6000,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        5000,
+        5000,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        7000,
+        7000,
+        0
+      ]
+    ],
+    "aggregate_usdc": [
+      10000,
+      11000,
+      5000,
+      0,
+      7000,
+      7000,
+      0
+    ],
+    "gross_cap_usdc": 22000,
+    "state_aware_backing_usdc": 11000,
+    "capital_saved_usdc": 11000,
+    "premiums_usdc": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "settlements": [
+      {
+        "state": "x<80000",
+        "payout_usdc": {
+          "maker": 1000,
+          "buyer0": 4000,
+          "buyer1": 6000,
+          "buyer2": 0,
+          "buyer3": 0,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "80000<=x<100000",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer3": 0,
+          "buyer2": 5000,
+          "buyer1": 6000,
+          "buyer0": 0,
+          "maker": 0
+        }
+      },
+      {
+        "state": "100000<=x<120000",
+        "payout_usdc": {
+          "maker": 6000,
+          "buyer0": 0,
+          "buyer1": 0,
+          "buyer2": 5000,
+          "buyer3": 0,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "x=120000",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer3": 0,
+          "buyer2": 0,
+          "buyer1": 0,
+          "buyer0": 0,
+          "maker": 11000
+        }
+      },
+      {
+        "state": "120000<x<150000",
+        "payout_usdc": {
+          "maker": 4000,
+          "buyer0": 0,
+          "buyer1": 0,
+          "buyer2": 0,
+          "buyer3": 7000,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "x>=150000",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer3": 7000,
+          "buyer2": 0,
+          "buyer1": 0,
+          "buyer0": 0,
+          "maker": 4000
+        }
+      },
+      {
+        "state": "INVALID",
+        "payout_usdc": {
+          "maker": 11000,
+          "buyer0": 0,
+          "buyer1": 0,
+          "buyer2": 0,
+          "buyer3": 0,
+          "treasury": 0
+        }
+      }
+    ]
+  },
+  "C": {
+    "remaining_liability_usdc": [
+      10500,
+      8500,
+      7000,
+      9000,
+      10000,
+      0
+    ],
+    "remaining_backing_usdc": 10500,
+    "gross_backing_reduction_usdc": 500,
+    "buyback_price_usdc": 400,
+    "actual_maker_withdrawal_usdc": 100,
+    "adverse_buyback_price_usdc": 1000,
+    "adverse_topup_required_usdc": 500,
+    "settlements": [
+      {
+        "state": "x<80000",
+        "payout_usdc": {
+          "maker": 0,
+          "buyer0": 10000,
+          "buyer1": 0,
+          "buyer2": 500,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "80000<=x<100000",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer2": 2500,
+          "buyer1": 0,
+          "buyer0": 6000,
+          "maker": 2000
+        }
+      },
+      {
+        "state": "100000<=x<120000",
+        "payout_usdc": {
+          "maker": 3500,
+          "buyer0": 2000,
+          "buyer1": 2000,
+          "buyer2": 3000,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "120000<=x<150000",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer2": 2000,
+          "buyer1": 7000,
+          "buyer0": 0,
+          "maker": 1500
+        }
+      },
+      {
+        "state": "x>=150000",
+        "payout_usdc": {
+          "maker": 500,
+          "buyer0": 0,
+          "buyer1": 10000,
+          "buyer2": 0,
+          "treasury": 0
+        }
+      },
+      {
+        "state": "INVALID",
+        "payout_usdc": {
+          "treasury": 0,
+          "buyer2": 0,
+          "buyer1": 0,
+          "buyer0": 0,
+          "maker": 10500
+        }
+      }
+    ]
+  },
+  "D": {
+    "premiums_received_usdc": 7000,
+    "prefunded_maker_cash_usdc": 18000,
+    "prefunded_free_usdc": 7000,
+    "minimal_contribution_usdc": 4000,
+    "minimal_account_free_usdc": 0,
+    "with_200_maker_fee_contribution_usdc": 4200,
+    "fee_recipient_cash_usdc": 200
+  },
+  "source_sha256": {
+    "simulations/portfolio_examples.py": "e520e528b165a483db1f1b4f7d0e16c0a2ef295906d23d9d3eeb29aeb6b1f1ae",
+    "simulations/collateral_engine.py": "5f42e42296b2770f633e5dc2971b5d722c0b78b994724458a4e6b3376e397272",
+    "model_v2/ledger.py": "2a537282cc95738136df78edbf395cbd69830e8868649024a3442ad92d5ad3cd",
+    "model_v2/verifier.py": "0cd23b15ad0452df1ded56ca49346639a18fefbc4a3ea703533ef7e59b469fb9"
+  }
+}

@@ -7,7 +7,7 @@ Executable research implementation of the finite-state baseline in [the v2 kerne
 From the repository root:
 
 ```sh
-python3 -B -m unittest model_v2.test_kernel -q
+python3 -B -m unittest model_v2.test_kernel model_v2.test_netting_review -q
 python3 -B -m model_v2.research --seeds 200 --steps 100
 ```
 
@@ -25,6 +25,7 @@ Research output is written to [results.json](results.json). Read [results.md](re
 | [ledger.py](ledger.py) | Atomic batches, fees, wallets, facts, epochs, lazy resolution, withdrawals, package/order authorization assertions and claims |
 | [examples.py](examples.py) | Reusable graph/payout builders, rainfall/football/price scenarios and end-finality history augmentation |
 | [test_kernel.py](test_kernel.py) | Deterministic regressions, independent differential tests and stateful replay checks |
+| [test_netting_review.py](test_netting_review.py) | Targeted cross-cover funding, hedge-removal and exhaustive signed-portfolio regressions |
 | [research.py](research.py) | Synthetic lifecycle backtesting and warm/general-verifier benchmarks |
 | [fixtures.json](fixtures.json) | Language-neutral market/account inputs with explicitly stated expected extrema |
 | [fixtures.py](fixtures.py) | Deliberate fixture regeneration, independent of the optimized answer |

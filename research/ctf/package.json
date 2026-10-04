@@ -1,0 +1,11 @@
+{
+  "name": "ascemarket-ctf-evidence",
+  "private": true,
+  "scripts": {"test": "node run-evidence.cjs"},
+  "dependencies": {
+    "@gnosis.pm/conditional-tokens-contracts": "1.0.3",
+    "ethers": "6.16.0",
+    "ganache": "7.9.2",
+    "solc": "0.5.17"
+  }
+}

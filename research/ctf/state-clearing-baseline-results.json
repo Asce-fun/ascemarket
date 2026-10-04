@@ -1,0 +1,273 @@
+{
+  "date": "2026-09-30",
+  "scope": "Local CTF mechanics; prefunded inventory; separate unsigned-harness transfers; synthetic premiums.",
+  "ctf_package": "@gnosis.pm/conditional-tokens-contracts@1.0.3",
+  "compiler": "0.5.17+commit.d19bba13.Emscripten.clang",
+  "ganache": "7.9.2",
+  "hardfork": "shanghai",
+  "assertions": 63,
+  "terminal_redemption_scenarios": 12,
+  "example_A": {
+    "covers_usdc": [
+      [
+        10000,
+        6000,
+        2000,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        2000,
+        7000,
+        10000,
+        0
+      ],
+      [
+        1000,
+        5000,
+        6000,
+        4000,
+        0,
+        0
+      ]
+    ],
+    "aggregate_usdc": [
+      11000,
+      11000,
+      10000,
+      11000,
+      10000,
+      0
+    ],
+    "naive_backing_usdc": 26000,
+    "ctf_backing_usdc": 11000
+  },
+  "example_C": {
+    "backing_usdc": 10500,
+    "backing_released_usdc": 500,
+    "buyback_usdc": 400,
+    "net_cash_release_usdc": 100
+  },
+  "gas": {
+    "full_six_state_split": 323334,
+    "buyer_batch_deliveries": [
+      118237,
+      118237,
+      133232
+    ],
+    "half_C_batch_buyback": 130508,
+    "full_set_500_merge": 200657
+  },
+  "settlement": [
+    {
+      "label": "A",
+      "rows": [
+        {
+          "state": 0,
+          "payout_usdc": [
+            0,
+            10000,
+            0,
+            1000
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            185310,
+            218206,
+            185310,
+            214841
+          ]
+        },
+        {
+          "state": 1,
+          "payout_usdc": [
+            0,
+            6000,
+            0,
+            5000
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            185310,
+            218206,
+            185310,
+            214841
+          ]
+        },
+        {
+          "state": 2,
+          "payout_usdc": [
+            1000,
+            2000,
+            2000,
+            6000
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            201106,
+            218206,
+            218206,
+            214841
+          ]
+        },
+        {
+          "state": 3,
+          "payout_usdc": [
+            0,
+            0,
+            7000,
+            4000
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            185310,
+            185310,
+            218206,
+            214841
+          ]
+        },
+        {
+          "state": 4,
+          "payout_usdc": [
+            1000,
+            0,
+            10000,
+            0
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            201106,
+            185310,
+            213406,
+            186745
+          ]
+        },
+        {
+          "state": 5,
+          "payout_usdc": [
+            11000,
+            0,
+            0,
+            0
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            196306,
+            185310,
+            185310,
+            186745
+          ]
+        }
+      ]
+    },
+    {
+      "label": "C",
+      "rows": [
+        {
+          "state": 0,
+          "payout_usdc": [
+            0,
+            10000,
+            0,
+            500
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            188180,
+            218206,
+            185310,
+            197741
+          ]
+        },
+        {
+          "state": 1,
+          "payout_usdc": [
+            2000,
+            6000,
+            0,
+            2500
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            203976,
+            218206,
+            185310,
+            197741
+          ]
+        },
+        {
+          "state": 2,
+          "payout_usdc": [
+            3500,
+            2000,
+            2000,
+            3000
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            203976,
+            218206,
+            218206,
+            197741
+          ]
+        },
+        {
+          "state": 3,
+          "payout_usdc": [
+            1500,
+            0,
+            7000,
+            2000
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            203976,
+            185310,
+            218206,
+            197741
+          ]
+        },
+        {
+          "state": 4,
+          "payout_usdc": [
+            500,
+            0,
+            10000,
+            0
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            203976,
+            185310,
+            213406,
+            186745
+          ]
+        },
+        {
+          "state": 5,
+          "payout_usdc": [
+            10500,
+            0,
+            0,
+            0
+          ],
+          "report_gas": 91032,
+          "redemption_gas": [
+            199176,
+            185310,
+            185310,
+            186745
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "runner": "89705896673ade3f1f1bbf9cc995b63b5c12010ffae1bb6887d26de340f5f217",
+    "helpers": "6c952661e7ba7907764ae5045b25ca508d7d93ddad3ca65219a270d088eb2618",
+    "ctf": "89f8ca9fd646044e22036c96fe04f7c5e78b7c4a628aa0bbf2abccacfcc84a08"
+  }
+}

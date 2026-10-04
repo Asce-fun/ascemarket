@@ -1,0 +1,31 @@
+{
+  "schema": "ascemarket-v2-research-results-1",
+  "scope": "Synthetic accounting replay; no historical feed, executable market prices or profitability backtest.",
+  "environment": {
+    "python": "3.14.0",
+    "platform": "macOS-26.6.2-arm64-arm-64bit-Mach-O"
+  },
+  "source_sha256": {
+    "__init__.py": "8619e5970e0c53a483fc81cea9c8de17d2e9bdc0f1eff9f7467924bae9302da9",
+    "examples.py": "8cb699342231961324481d73e638e30029d6fad8b82084a97f3d463ca46deea1",
+    "fixtures.py": "17b85e45518d4a87d28f92004a507d4b49aa051b50865d73e9d366f1bed1db38",
+    "ledger.py": "2a537282cc95738136df78edbf395cbd69830e8868649024a3442ad92d5ad3cd",
+    "oracle.py": "64e4beb059738e6c23dd9521177b5c7b57b1cb77070c0a1b402de70e741d17a8",
+    "research.py": "deedbd7a42bf5cdcd9cf93608839cf1eb1742a1f502f604aef628cb7d972f2e2",
+    "schema.py": "c0a4a069ff04f5b2d97e0fdba60ffb36c71f075278ab97b3acad43fe19df8096",
+    "test_kernel.py": "7ba44abd43aef2142837c315ab494f0e78cdb39f7c198cc5f7b9beaa75ea399f",
+    "test_netting_review.py": "367a3236e555fe326c9cfb2703744cbb5c214847552fcae22df60369bf5dc4e9",
+    "verifier.py": "0cd23b15ad0452df1ded56ca49346639a18fefbc4a3ea703533ef7e59b469fb9"
+  },
+  "runtime_seconds": 12.164,
+  "command": "python3 -B -m model_v2.research --seeds 200 --steps 100 --output /private/tmp/ascemarket-netting-review-results.json",
+  "randomized": {
+    "seeds": 200,
+    "steps_per_seed": 100,
+    "accepted": 14274,
+    "rejected_without_mutation": 2792,
+    "skipped_resolved_cover": 2934,
+    "path_audits": 448826,
+    "all_final_escrows_zero": true
+  }
+}
