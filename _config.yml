@@ -1,0 +1,5 @@
+theme: jekyll-theme-minimal
+title: AsceMarket Whitepaper
+description: A marketplace for standardized financial covers
+github:
+  is_project_page: false
