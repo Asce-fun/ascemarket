@@ -1,0 +1,42 @@
+name: Publish whitepaper
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ascemarket-whitepaper.pdf
+      - whitepaper/index.html
+      - .github/workflows/whitepaper-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: whitepaper-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - name: Prepare public whitepaper files
+        run: |
+          mkdir -p _site
+          cp whitepaper/index.html _site/index.html
+          cp ascemarket-whitepaper.pdf _site/ascemarket-whitepaper.pdf
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4

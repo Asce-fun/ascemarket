@@ -4,6 +4,10 @@
 
 **Whitepaper**
 
+[Download the whitepaper (PDF)](ascemarket-whitepaper.pdf)
+
+[Read or download the hosted whitepaper](https://asce-fun.github.io/ascemarket/)
+
 author: Saurabh yadav
 
 ### Abstract
